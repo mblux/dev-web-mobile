@@ -1,3 +1,5 @@
+//Calcul de la somme des éléments d'un tableau
+
 #include <stdio.h>
 
 int sommeTableau(int tableau[], int taille) {
