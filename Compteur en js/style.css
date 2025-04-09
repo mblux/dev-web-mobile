@@ -1,0 +1,16 @@
+h1{
+    text-align: center;
+}
+div{
+    text-align: center;
+}
+button{
+    color: white;
+    background-color: blue;
+    border: blue;
+    border-radius: 2px;
+    text-align: center;
+}
+body{
+    background-color: antiquewhite;
+}
