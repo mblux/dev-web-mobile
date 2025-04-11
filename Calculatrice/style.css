@@ -1,0 +1,60 @@
+
+h3{
+    text-align: center;
+    color: #000000;
+}
+body {
+    font-family: 'Arial', sans-serif;
+    background-color: #f0f0f0;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    height: 100vh;
+}
+
+.calculatrice {
+    background-color: #b8b6bb;
+    padding: 15px;
+    border-radius: 12px;
+    box-shadow: 0 0 15px rgba(0,0,0,0.2);
+    width: 300px;
+}
+
+
+.ecran{
+    width: 100%;
+    height: 30px;
+    background-color: rgb(246, 246, 246);
+    border-radius: 5px;
+    display: flex;
+    justify-content: right;
+    align-items: center;
+    box-shadow: 0 0 5px rgb(0, 0, 0);
+    margin-bottom: 5px;
+   
+}
+
+.touches{
+    margin-bottom: 10px;
+    display: grid;
+    grid-template-columns: repeat(4, auto);
+    grid-gap: 1px;
+}
+
+.btouch {
+    display: grid;
+    grid-template-columns: repeat(5, auto);
+    gap: 1px;
+    margin-bottom: 2px;
+} 
+
+
+button{
+    outline: blue;
+    border-radius: 2px;
+    border: #b8b6bb;
+}
+button:active{
+    box-shadow: 0 1px black;
+    transform: translateY(2px);
+}
