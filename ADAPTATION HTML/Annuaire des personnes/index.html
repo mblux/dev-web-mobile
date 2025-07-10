@@ -1,0 +1,328 @@
+<!DOCTYPE html>
+<html lang="fr">
+
+<head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Annuaire des Personnes</title>
+    <style>
+        * {
+            box-sizing: border-box;
+            font-family: Arial, sans-serif;
+            margin: 0;
+            padding: 0;
+        }
+
+        body {
+            background-color: #f2f2f2;
+            padding: 20px;
+        }
+
+        .container {
+            max-width: 1200px;
+            margin: auto;
+        }
+
+        h1 {
+            text-align: center;
+            margin-bottom: 22px;
+            color: #000;
+        }
+
+        .filtre {
+            padding: 10px;
+            border-radius: 8px;
+            display: flex;
+            flex-wrap: wrap;
+            gap: 10px;
+            margin-bottom: 30px;
+        }
+
+        .filtre-container {
+            background: #fff;
+            box-shadow: 0 2px 4px rgba(0, 0, 0, 0.1);
+            padding-top: 10px;
+            padding-left: 20px;
+        }
+
+        .filtre select,
+        .filtre input {
+            padding: 10px;
+            font-size: 16px;
+            border-radius: 5px;
+            border: 1px solid #ccc;
+        }
+
+        .filtre button {
+            padding: 10px 15px;
+            font-size: 16px;
+            border: none;
+            border-radius: 5px;
+            cursor: pointer;
+        }
+
+        .filtre .apply {
+            background-color: #0d6efd;
+            color: white;
+        }
+
+        .filtre .reset {
+            background-color: #0d6efd;
+            color: white;
+        }
+
+        .cards {
+            display: grid;
+            grid-template-columns: repeat(auto-fill, minmax(280px, 1fr));
+            gap: 10px;
+        }
+
+        .card {
+            background: white;
+            border-radius: 10px;
+            padding: 20px;
+            box-shadow: 0 1px 5px rgba(0, 0, 0, 0.1);
+            transition: 0.5s;
+        }
+
+        .card:hover {
+            transform: scaleY(1.1);
+        }
+
+        .card h2 {
+            color: #007bff;
+            margin-bottom: 10px;
+        }
+
+        .card p {
+            margin: 6px 0;
+        }
+
+        .badge {
+            padding: 5px 10px;
+            border-radius: 4px;
+            font-size: 14px;
+            color: white;
+        }
+
+        .badge.actif {
+            background-color: #28a745;
+        }
+
+        .badge.inactif {
+            background-color: #dc3545;
+        }
+
+        .skills {
+            margin-top: 5px;
+        }
+
+        .skills span {
+            display: inline-block;
+            background: #e9f1ff;
+            color: #007bff;
+            padding: 5px 10px;
+            border-radius: 15px;
+            font-size: 13px;
+            margin: 3px 5px 0 0;
+        }
+
+        @media (max-width: 600px) {
+            .filtre {
+                flex-direction: column;
+                align-items: stretch;
+            }
+
+            .filtre select,
+            .filtre input,
+            .filtre button {
+                width: 100%;
+            }
+        }
+
+        @media (min-width: 1024px) {
+            .cards {
+                display: grid;
+                grid-template-columns: repeat(3, auto);
+            }
+        }
+
+        .hidden {
+            display: none;
+        }
+    </style>
+</head>
+
+<body>
+    <div class="container">
+        <h1>Annuaire des Personnes</h1>
+
+        <div class="filtre-container">
+            <h4>Filtrer les résultats :</h4>
+            <div class="filtre">
+                <select id="ville">
+                    <option value="">Toutes les villes</option>
+                    <option>Lille</option>
+                    <option>Bordeaux</option>
+                    <option>Lyon</option>
+                    <option>Toulouse</option>
+                    <option>Nantes</option>
+                    <option>Strasbourg</option>
+                </select>
+
+                <select id="statut">
+                    <option value="">Tous les statuts</option>
+                    <option>Actif</option>
+                    <option>Inactif</option>
+                </select>
+
+                <input type="text" id="recherche" placeholder="Rechercher..." />
+                <button class="apply" id="appliquer">Appliquer</button>
+                <button class="reset" id="reinitialiser">Réinitialiser</button>
+            </div>
+        </div>
+
+        <div class="cards">
+            <!-- Camille Leroy -->
+            <div class="card" data-ville="Lille" data-statut="Actif" data-recherche="camille leroy python gestion de projet">
+                <h2>Camille Leroy</h2>
+                <p><strong>Âge :</strong> 32 ans</p>
+                <p><strong>Email :</strong> camille.leroy@example.com</p>
+                <p><strong>Ville :</strong> Lille</p>
+                <p><strong>Statut :</strong> <span class="badge actif">Actif</span></p>
+                <p><strong>Compétences :</strong></p>
+                <div class="skills">
+                    <span>Python</span>
+                    <span>Gestion de projet</span>
+                </div>
+            </div>
+
+            <!-- Thomas Moreau  -->
+            <div class="card" data-ville="Bordeaux" data-statut="Inactif" data-recherche="thomas moreau javascript ui/ux">
+                <h2>Thomas Moreau</h2>
+                <p><strong>Âge :</strong> 28 ans</p>
+                <p><strong>Email :</strong> thomas.moreau@example.com</p>
+                <p><strong>Ville :</strong> Bordeaux</p>
+                <p><strong>Statut :</strong> <span class="badge inactif">Inactif</span></p>
+                <p><strong>Compétences :</strong></p>
+                <div class="skills">
+                    <span>JavaScript</span>
+                    <span>UI/UX</span>
+                </div>
+            </div>
+
+            <!-- Sophie Dubois -->
+            <div class="card" data-ville="Lyon" data-statut="Actif" data-recherche="sophie dubois marketing réseaux sociaux">
+                <h2>Sophie Dubois</h2>
+                <p><strong>Âge :</strong> 41 ans</p>
+                <p><strong>Email :</strong> sophie.dubois@example.com</p>
+                <p><strong>Ville :</strong> Lyon</p>
+                <p><strong>Statut :</strong> <span class="badge actif">Actif</span></p>
+                <p><strong>Compétences :</strong></p>
+                <div class="skills">
+                    <span>Marketing</span>
+                    <span>Réseaux sociaux</span>
+                </div>
+            </div>
+
+            <!-- Antoine Girard -->
+            <div class="card" data-ville="Toulouse" data-statut="Actif" data-recherche="antoine girard java base de données">
+                <h2>Antoine Girard</h2>
+                <p><strong>Âge :</strong> 24 ans</p>
+                <p><strong>Email :</strong> antoine.girard@example.com</p>
+                <p><strong>Ville :</strong> Toulouse</p>
+                <p><strong>Statut :</strong> <span class="badge actif">Actif</span></p>
+                <p><strong>Compétences :</strong></p>
+                <div class="skills">
+                    <span>Java</span>
+                    <span>Base de données</span>
+                </div>
+            </div>
+
+            <!-- Élodie Fontaine -->
+            <div class="card" data-ville="Nantes" data-statut="Inactif" data-recherche="élodie fontaine communication rédaction">
+                <h2>Élodie Fontaine</h2>
+                <p><strong>Âge :</strong> 36 ans</p>
+                <p><strong>Email :</strong> elodie.fontaine@example.com</p>
+                <p><strong>Ville :</strong> Nantes</p>
+                <p><strong>Statut :</strong> <span class="badge inactif">Inactif</span></p>
+                <p><strong>Compétences :</strong></p>
+                <div class="skills">
+                    <span>Communication</span>
+                    <span>Rédaction</span>
+                </div>
+            </div>
+
+            <!-- Nicolas Roux -->
+            <div class="card" data-ville="Strasbourg" data-statut="Actif" data-recherche="nicolas roux react node.js">
+                <h2>Nicolas Roux</h2>
+                <p><strong>Âge :</strong> 29 ans</p>
+                <p><strong>Email :</strong> nicolas.roux@example.com</p>
+                <p><strong>Ville :</strong> Strasbourg</p>
+                <p><strong>Statut :</strong> <span class="badge actif">Actif</span></p>
+                <p><strong>Compétences :</strong></p>
+                <div class="skills">
+                    <span>React</span>
+                    <span>Node.js</span>
+                </div>
+            </div>
+        </div>
+    </div>
+
+    <script>
+        document.addEventListener('DOMContentLoaded', function() {
+            const btnAppliquer = document.getElementById('appliquer');
+            const btnReinitialiser = document.getElementById('reinitialiser');
+            const selectVille = document.getElementById('ville');
+            const selectStatut = document.getElementById('statut');
+            const inputRecherche = document.getElementById('recherche');
+            const cards = document.querySelectorAll('.card');
+
+            // Fonction pour appliquer les filtres
+            function appliquerFiltres() {
+                const ville = selectVille.value;
+                const statut = selectStatut.value;
+                const recherche = inputRecherche.value.toLowerCase();
+
+                cards.forEach(card => {
+                    const cardVille = card.getAttribute('data-ville');
+                    const cardStatut = card.getAttribute('data-statut');
+                    const cardRecherche = card.getAttribute('data-recherche');
+
+                    const correspondVille = !ville || cardVille === ville;
+                    const correspondStatut = !statut || cardStatut === statut;
+                    const correspondRecherche = !recherche || cardRecherche.includes(recherche);
+
+                    if (correspondVille && correspondStatut && correspondRecherche) {
+                        card.classList.remove('hidden');
+                    } else {
+                        card.classList.add('hidden');
+                    }
+                });
+            }
+
+            // Fonction pour réinitialiser les filtres
+            function reinitialiserFiltres() {
+                selectVille.value = '';
+                selectStatut.value = '';
+                inputRecherche.value = '';
+                cards.forEach(card => {
+                    card.classList.remove('hidden');
+                });
+            }
+
+            // Événements
+            btnAppliquer.addEventListener('click', appliquerFiltres);
+            btnReinitialiser.addEventListener('click', reinitialiserFiltres);
+
+            // Permettre d'appliquer les filtres avec la touche Entrée
+            inputRecherche.addEventListener('keyup', function(e) {
+                if (e.key === 'Enter') {
+                    appliquerFiltres();
+                }
+            });
+        });
+    </script>
+</body>
+
+</html>
