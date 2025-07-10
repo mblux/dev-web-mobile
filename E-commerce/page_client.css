@@ -1,0 +1,82 @@
+body {
+  font-family: sans-serif;
+  margin: 0;
+  padding: 0;
+  background: #f7f7f7;
+}
+
+header {
+  background: #003366;
+  color: white;
+  padding: .15rem;
+  display: flex;
+  justify-content: space-between;
+}
+
+nav a {
+  color: white;
+  text-decoration: none;
+}
+
+.filter-section {
+  padding: 1rem;
+  background: white;
+}
+
+.filters {
+  display: flex;
+  flex-wrap: wrap;
+  gap: 1rem;
+}
+
+.filters input, .filters select, .filters button {
+  padding: 0.5rem;
+  flex: 1;
+  min-width: 150px;
+}
+
+.car-list {
+  display: grid;
+  grid-template-columns: repeat(auto-fit, minmax(250px, 1fr));
+  gap: 1rem;
+  padding: 1rem;
+}
+
+.car-card {
+  background: white;
+  padding: 1rem;
+  border-radius: 8px;
+}
+
+.car-card img {
+  width: 100%;
+  height: 150px;
+  object-fit: cover;
+}
+
+.car-details {
+  display: flex;
+  flex-direction: column;
+  padding: 1rem;
+}
+
+.car-details img {
+  width: 100%;
+  max-height: 300px;
+  object-fit: cover;
+}
+
+.actions button {
+  margin-top: 1rem;
+  padding: 0.5rem 1rem;
+}
+
+@media (min-width: 768px) {
+  .car-details {
+    flex-direction: row;
+    gap: 2rem;
+  }
+  .car-details img {
+    width: 50%;
+  }
+}

@@ -1,0 +1,66 @@
+/* Style global */
+body {
+  font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
+  background-color: #f8f9fa;
+  margin: 0;
+  padding: 0;
+}
+
+/* Navbar */
+.navbar-brand {
+  font-weight: bold;
+  font-size: 1.3rem;
+}
+
+/* Contenu principal */
+.container h1 {
+  font-size: 2rem;
+  font-weight: 600;
+}
+
+/* Boutons dashboard */
+.row a.btn {
+  padding: 20px;
+  font-size: 1rem;
+  font-weight: 500;
+  transition: transform 0.2s, box-shadow 0.2s;
+}
+
+.row a.btn:hover {
+  transform: scale(1.02);
+  box-shadow: 0 4px 12px rgba(0, 0, 0, 0.1);
+}
+
+/* Footer */
+footer {
+  font-size: 0.9rem;
+}
+
+/* Responsive design */
+@media (max-width: 768px) {
+  .navbar-brand {
+    font-size: 1.1rem;
+  }
+
+  .container h1 {
+    font-size: 1.5rem;
+    text-align: center;
+  }
+
+  .row a.btn {
+    font-size: 0.95rem;
+    padding: 16px;
+  }
+}
+
+@media (max-width: 576px) {
+  .row > div {
+    flex: 0 0 100%;
+    max-width: 100%;
+  }
+
+  .row {
+    flex-direction: column;
+    align-items: center;
+  }
+}

@@ -1,0 +1,61 @@
+<!DOCTYPE html>
+<html lang="fr">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>AutoMarket - Recherche</title>
+  <link rel="stylesheet" href="page_client.css">
+</head>
+<body>
+
+<header>
+  <h1>DooM+ Auto</h1>
+  <!-- <nav>
+    <a href="signup.html">Créer un compte</a>
+  </nav> -->
+</header>
+
+<section class="filter-section">
+  <h2>Rechercher un véhicule</h2>
+  <div class="filters">
+    <input type="text" id="search" placeholder="Marque, modèle...">
+    <select id="price">
+      <option value="">Prix</option>
+      <option value="20000">≤ 20 000 €</option>
+      <option value="30000">≤ 30 000 €</option>
+    </select>
+    <select id="km">
+      <option value="">Kilométrage</option>
+      <option value="50000">≤ 50 000 km</option>
+      <option value="100000">≤ 100 000 km</option>
+    </select>
+    <button onclick="filterCars()">Rechercher</button>
+  </div>
+</section>
+
+<section class="car-details">
+  <img src="image/elect.png" alt="Véhicule" id="carImage">
+  <div class="info">
+    <h2 id="carTitle">Toyota Corolla 2021</h2>
+    <p id="carDesc">Berline, automatique, 25 000 km</p>
+    <p id="carPrice">Prix : <strong>22 000 €</strong></p>
+    
+    <h3>Simulation de crédit</h3>
+    <label>Durée (mois): <input type="number" id="months" value="36"></label>
+    <button onclick="simulateCredit()">Calculer</button>
+    <p id="monthlyPayment"></p>
+
+    <div class="actions">
+      <button>Réserver ce véhicule</button>
+      <button>Demander un contact</button>
+    </div>
+  </div>
+</section>
+
+<section class="car-list" id="carList">
+  <!-- Cartes véhicules injectées ici par JS -->
+</section>
+
+<script src="page_client.js"></script>
+</body>
+</html>
