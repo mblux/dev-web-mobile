@@ -1,0 +1,193 @@
+<!DOCTYPE html>
+<html lang="fr">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Bétail - Gestion de Ferme</title>
+    <link rel="stylesheet" href="betails.css">
+    <link href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.0.0/css/all.min.css" rel="stylesheet">
+</head>
+
+<body>
+    <!-- Sidebar -->
+    <div class="sidebar">
+        <div class="sidebar-header">
+            Gestion de Ferme
+        </div>
+        <div class="sidebar-menu">
+            <a href="dashboard.html" class="menu-item">
+                <i class="fas fa-fw fa-tachometer-alt"></i>
+                <span>Accueil</span>
+            </a>
+            <a href="especes.html" class="menu-item">
+                <i class="fas fa-fw fa-paw"></i>
+                <span>Espèces</span>
+            </a>
+            <a href="betail.html" class="menu-item active">
+                <i class="fas fa-fw fa-kiwi-bird"></i>
+                <span>Bétail</span>
+            </a>
+            <a href="animaux.html" class="menu-item">
+                <i class="fas fa-fw fa-cow"></i>
+                <span>Animaux</span>
+            </a>
+        </div>
+    </div>
+
+    <!-- Main Content -->
+    <div class="main-content">
+        <!-- Header -->
+        <div class="header">
+            <div class="page-title">
+                <h1>Gestion des Types de Bétail</h1>
+            </div>
+            <div class="user-info">
+                <span>Admin</span>
+                <img src="https://via.placeholder.com/40" alt="User">
+            </div>
+        </div>
+
+        <!-- Action Bar -->
+        <div class="action-bar">
+            <div class="search-box">
+                <i class="fas fa-search"></i>
+                <input type="text" placeholder="Rechercher un type de bétail...">
+            </div>
+            <button class="btn btn-primary" id="addBetailBtn">
+                <i class="fas fa-plus"></i> Ajouter un type
+            </button>
+        </div>
+
+        <!-- Table -->
+        <div class="table-container">
+            <table>
+                <thead>
+                    <tr>
+                        <th>ID</th>
+                        <th>Type de Bétail</th>
+                        <th>Actions</th>
+                    </tr>
+                </thead>
+                <tbody>
+                    <tr>
+                        <td>1</td>
+                        <td>Bovin</td>
+                        <td class="actions-cell">
+                            <button class="btn btn-success btn-sm">
+                                <i class="fas fa-edit"></i>
+                            </button>
+                            <button class="btn btn-danger btn-sm">
+                                <i class="fas fa-trash"></i>
+                            </button>
+                        </td>
+                    </tr>
+                    <tr>
+                        <td>2</td>
+                        <td>Ovin</td>
+                        <td class="actions-cell">
+                            <button class="btn btn-success btn-sm">
+                                <i class="fas fa-edit"></i>
+                            </button>
+                            <button class="btn btn-danger btn-sm">
+                                <i class="fas fa-trash"></i>
+                            </button>
+                        </td>
+                    </tr>
+                    <tr>
+                        <td>3</td>
+                        <td>Caprin</td>
+                        <td class="actions-cell">
+                            <button class="btn btn-success btn-sm">
+                                <i class="fas fa-edit"></i>
+                            </button>
+                            <button class="btn btn-danger btn-sm">
+                                <i class="fas fa-trash"></i>
+                            </button>
+                        </td>
+                    </tr>
+                    <tr>
+                        <td>4</td>
+                        <td>Volaille</td>
+                        <td class="actions-cell">
+                            <button class="btn btn-success btn-sm">
+                                <i class="fas fa-edit"></i>
+                            </button>
+                            <button class="btn btn-danger btn-sm">
+                                <i class="fas fa-trash"></i>
+                            </button>
+                        </td>
+                    </tr>
+                    <tr>
+                        <td>5</td>
+                        <td>Porcin</td>
+                        <td class="actions-cell">
+                            <button class="btn btn-success btn-sm">
+                                <i class="fas fa-edit"></i>
+                            </button>
+                            <button class="btn btn-danger btn-sm">
+                                <i class="fas fa-trash"></i>
+                            </button>
+                        </td>
+                    </tr>
+                </tbody>
+            </table>
+        </div>
+    </div>
+
+    <!-- Add Betail Modal -->
+    <div class="modal" id="addBetailModal">
+        <div class="modal-content">
+            <div class="modal-header">
+                <div class="modal-title">Ajouter un nouveau type de bétail</div>
+                <button class="close-btn">&times;</button>
+            </div>
+            <form id="betailForm">
+                <div class="form-group">
+                    <label for="betailNom">Type de bétail</label>
+                    <input type="text" id="betailNom" placeholder="Ex: Bovin, Ovin, etc." required>
+                </div>
+                <div class="modal-footer">
+                    <button type="button" class="btn close-btn">Annuler</button>
+                    <button type="submit" class="btn btn-primary">Enregistrer</button>
+                </div>
+            </form>
+        </div>
+    </div>
+
+    <script>
+        // Modal handling
+        const addBetailBtn = document.getElementById('addBetailBtn');
+        const addBetailModal = document.getElementById('addBetailModal');
+        const closeBtns = document.querySelectorAll('.close-btn');
+
+        addBetailBtn.addEventListener('click', () => {
+            addBetailModal.style.display = 'flex';
+        });
+
+        closeBtns.forEach(btn => {
+            btn.addEventListener('click', () => {
+                addBetailModal.style.display = 'none';
+            });
+        });
+
+        // Close modal when clicking outside
+        window.addEventListener('click', (e) => {
+            if (e.target === addBetailModal) {
+                addBetailModal.style.display = 'none';
+            }
+        });
+
+        // Form submission
+        document.getElementById('betailForm').addEventListener('submit', (e) => {
+            e.preventDefault();
+            // Here you would handle the form submission (AJAX call to backend)
+            alert('Type de bétail ajouté avec succès!');
+            addBetailModal.style.display = 'none';
+            // Reset form
+            e.target.reset();
+        });
+    </script>
+</body>
+
+</html>

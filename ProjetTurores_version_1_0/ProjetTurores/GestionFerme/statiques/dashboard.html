@@ -1,0 +1,142 @@
+<!DOCTYPE html>
+<html lang="fr">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Dashboard - Gestion de Ferme</title>
+    <link rel="stylesheet" href="dashboard.css">
+    <link href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.0.0/css/all.min.css" rel="stylesheet">
+</head>
+
+<body>
+    <!-- Sidebar -->
+    <div class="sidebar">
+        <div class="sidebar-header">
+            Gestion de Ferme
+        </div>
+        <div class="sidebar-menu">
+            <a href="#" class="menu-item active">
+                <i class="fas fa-fw fa-tachometer-alt"></i>
+                <span>Accueil</span>
+            </a>
+            <a href="#" class="menu-item">
+                <i class="fas fa-fw fa-paw"></i>
+                <span>Espèces</span>
+            </a>
+            <a href="#" class="menu-item">
+                <i class="fas fa-fw fa-kiwi-bird"></i>
+                <span>Bétail</span>
+            </a>
+            <a href="#" class="menu-item">
+                <i class="fas fa-fw fa-cow"></i>
+                <span>Animaux</span>
+            </a>
+        </div>
+    </div>
+
+    <!-- Main Content -->
+    <div class="main-content">
+        <!-- Header -->
+        <div class="header">
+            <div class="page-title">
+                <h1>Tableau de Bord</h1>
+            </div>
+            <div class="user-info">
+                <span>Admin</span>
+                <img src="https://via.placeholder.com/40" alt="User">
+            </div>
+        </div>
+
+        <!-- Cards -->
+        <div class="cards-container">
+            <div class="card card-primary">
+                <div class="card-title">Total Animaux</div>
+                <div class="card-value">248</div>
+            </div>
+            <div class="card card-primary">
+                <div class="card-title">Espèces</div>
+                <div class="card-value">12</div>
+            </div>
+            <div class="card card-primary">
+                <div class="card-title">Types de Bétail</div>
+                <div class="card-value">5</div>
+            </div>
+            <div class="card card-primary">
+                <div class="card-title">Nouveaux (7j)</div>
+                <div class="card-value">8</div>
+            </div>
+        </div>
+
+        <!-- Charts -->
+        <div class="charts-section">
+            <div class="chart-card">
+                <div class="chart-header">
+                    <div class="chart-title">Répartition des Animaux par Espèce</div>
+                </div>
+                <div class="chart-placeholder">
+                    Graphique circulaire à venir
+                </div>
+            </div>
+            <div class="chart-card">
+                <div class="chart-header">
+                    <div class="chart-title">Nouveaux Animaux (30j)</div>
+                </div>
+                <div class="chart-placeholder">
+                    Graphique linéaire à venir
+                </div>
+            </div>
+        </div>
+
+        <!-- Recent Animals -->
+        <div class="recent-animals">
+            <div class="table-header">
+                <div class="chart-title">Animaux Récemment Ajoutés</div>
+                <a href="#">Voir tout</a>
+            </div>
+            <table>
+                <thead>
+                    <tr>
+                        <th>Nom</th>
+                        <th>Espèce</th>
+                        <th>Bétail</th>
+                        <th>Date Naissance</th>
+                        <th>Âge</th>
+                    </tr>
+                </thead>
+                <tbody>
+                    <tr>
+                        <td>Bella</td>
+                        <td><span class="badge badge-primary">Vache</span></td>
+                        <td>Bovin</td>
+                        <td>15/03/2020</td>
+                        <td>3 ans</td>
+                    </tr>
+                    <tr>
+                        <td>Moutonnet</td>
+                        <td><span class="badge badge-primary">Mouton</span></td>
+                        <td>Ovin</td>
+                        <td>10/05/2021</td>
+                        <td>2 ans</td>
+                    </tr>
+                    <tr>
+                        <td>Pilou</td>
+                        <td><span class="badge badge-primary">Poule</span></td>
+                        <td>Volaille</td>
+                        <td>22/01/2022</td>
+                        <td>1 an</td>
+                    </tr>
+                    <tr>
+                        <td>Biquette</td>
+                        <td><span class="badge badge-primary">Chèvre</span></td>
+                        <td>Caprin</td>
+                        <td>05/11/2019</td>
+                        <td>4 ans</td>
+                    </tr>
+                </tbody>
+            </table>
+        </div>
+    </div>
+</body>
+
+</html>

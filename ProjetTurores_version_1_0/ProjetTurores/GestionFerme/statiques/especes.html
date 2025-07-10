@@ -1,0 +1,103 @@
+<!DOCTYPE html>
+<html lang="fr">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Espèces - Gestion de Ferme</title>
+    <link rel="stylesheet" href="especes.css">
+    <link href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.0.0/css/all.min.css" rel="stylesheet">
+</head>
+
+<body>
+    <!-- Sidebar -->
+    <div class="sidebar">
+        <div class="sidebar-header">
+            Gestion de Ferme
+        </div>
+        <div class="sidebar-menu">
+            <a href="dashboard.html" class="menu-item">
+                <i class="fas fa-fw fa-tachometer-alt"></i>
+                <span>Accueil</span>
+            </a>
+            <a href="especes.html" class="menu-item active">
+                <i class="fas fa-fw fa-paw"></i>
+                <span>Espèces</span>
+            </a>
+            <a href="betail.html" class="menu-item">
+                <i class="fas fa-fw fa-kiwi-bird"></i>
+                <span>Bétail</span>
+            </a>
+            <a href="animaux.html" class="menu-item">
+                <i class="fas fa-fw fa-cow"></i>
+                <span>Animaux</span>
+            </a>
+        </div>
+    </div>
+
+    <!-- Main Content -->
+    <div class="main-content">
+        <!-- Header -->
+        <div class="header">
+            <div class="page-title">
+                <h1>Gestion des Espèces</h1>
+            </div>
+            <div class="user-info">
+                <span>Admin</span>
+                <img src="https://via.placeholder.com/40" alt="User">
+            </div>
+        </div>
+
+        <!-- Action Bar -->
+        <div class="action-bar">
+            <div class="search-box">
+                <i class="fas fa-search"></i>
+                <input type="text" placeholder="Rechercher une espèce...">
+            </div>
+            <button class="btn btn-primary" id="addEspeceBtn">
+                <i class="fas fa-plus"></i> Ajouter une espèce
+            </button>
+        </div>
+
+        <!-- Table -->
+        <div class="table-container">
+            <table>
+                <thead>
+                    <tr>
+                        <th>ID</th>
+                        <th>Nom de l'espèce</th>
+                        <th>Actions</th>
+                    </tr>
+                </thead>
+                <tbody>
+                    <tr>
+                        <td>1</td>
+                        <td>Vache</td>
+                        <td class="actions-cell">
+                            <button class="btn btn-success btn-sm">
+                                <i class="fas fa-edit"></i>
+                            </button>
+                            <button class="btn btn-danger btn-sm">
+                                <i class="fas fa-trash"></i>
+                            </button>
+                        </td>
+                    </tr>
+                    <tr>
+                        <td>2</td>
+                        <td>Mouton</td>
+                        <td class="actions-cell">
+                            <button class="btn btn-success btn-sm">
+                                <i class="fas fa-edit"></i>
+                            </button>
+                            <button class="btn btn-danger btn-sm">
+                                <i class="fas fa-trash"></i>
+                            </button>
+                        </td>
+                    </tr>
+                </tbody>
+            </table>
+        </div>
+    </div>
+</body>
+
+</html>

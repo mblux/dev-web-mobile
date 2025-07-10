@@ -1,0 +1,332 @@
+<!DOCTYPE html>
+<html lang="fr">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Animaux - Gestion de Ferme</title>
+    <link rel="stylesheet" href="animeaux.css">
+    <link href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.0.0/css/all.min.css" rel="stylesheet">
+</head>
+
+<body>
+    <!-- Sidebar -->
+    <div class="sidebar">
+        <div class="sidebar-header">
+            Gestion de Ferme
+        </div>
+        <div class="sidebar-menu">
+            <a href="dashboard.html" class="menu-item">
+                <i class="fas fa-fw fa-tachometer-alt"></i>
+                <span>Accueil</span>
+            </a>
+            <a href="especes.html" class="menu-item">
+                <i class="fas fa-fw fa-paw"></i>
+                <span>Espèces</span>
+            </a>
+            <a href="betail.html" class="menu-item">
+                <i class="fas fa-fw fa-kiwi-bird"></i>
+                <span>Bétail</span>
+            </a>
+            <a href="animaux.html" class="menu-item active">
+                <i class="fas fa-fw fa-cow"></i>
+                <span>Animaux</span>
+            </a>
+        </div>
+    </div>
+
+    <!-- Main Content -->
+    <div class="main-content">
+        <!-- Header -->
+        <div class="header">
+            <div class="page-title">
+                <h1>Gestion des Animaux</h1>
+            </div>
+            <div class="user-info">
+                <span>Admin</span>
+                <img src="https://via.placeholder.com/40" alt="User">
+            </div>
+        </div>
+
+        <!-- Action Bar -->
+        <div class="action-bar">
+            <div class="search-box">
+                <i class="fas fa-search"></i>
+                <input type="text" placeholder="Rechercher un animal...">
+            </div>
+            <button class="btn btn-primary" id="addAnimalBtn">
+                <i class="fas fa-plus"></i> Ajouter un animal
+            </button>
+        </div>
+
+        <!-- Filter Bar -->
+        <div class="filter-bar">
+            <div class="filter-group">
+                <label for="filterEspece">Filtrer par espèce</label>
+                <select id="filterEspece">
+                    <option value="">Toutes les espèces</option>
+                    <option value="1">Vache</option>
+                    <option value="2">Mouton</option>
+                    <option value="3">Chèvre</option>
+                    <option value="4">Poule</option>
+                </select>
+            </div>
+            <div class="filter-group">
+                <label for="filterBetail">Filtrer par bétail</label>
+                <select id="filterBetail">
+                    <option value="">Tous les types</option>
+                    <option value="1">Bovin</option>
+                    <option value="2">Ovin</option>
+                    <option value="3">Caprin</option>
+                    <option value="4">Volaille</option>
+                </select>
+            </div>
+            <div class="filter-group">
+                <label for="filterAge">Filtrer par âge</label>
+                <select id="filterAge">
+                    <option value="">Tous les âges</option>
+                    <option value="1">Moins de 1 an</option>
+                    <option value="2">1-3 ans</option>
+                    <option value="3">3-5 ans</option>
+                    <option value="4">Plus de 5 ans</option>
+                </select>
+            </div>
+            <div class="filter-group">
+                <button class="btn btn-warning" style="margin-top: 1.4rem;">
+                    <i class="fas fa-filter"></i> Appliquer
+                </button>
+            </div>
+        </div>
+
+        <!-- Table -->
+        <div class="table-container">
+            <table>
+                <thead>
+                    <tr>
+                        <th>Photo</th>
+                        <th>Nom</th>
+                        <th>Espèce</th>
+                        <th>Bétail</th>
+                        <th>Date Naissance</th>
+                        <th>Âge</th>
+                        <th>Actions</th>
+                    </tr>
+                </thead>
+                <tbody>
+                    <tr>
+                        <td><img src="https://via.placeholder.com/40?text=V" class="animal-photo" alt="Vache"></td>
+                        <td>Bella</td>
+                        <td><span class="badge badge-primary">Vache</span></td>
+                        <td>Bovin</td>
+                        <td>15/03/2020</td>
+                        <td>3 ans</td>
+                        <td class="actions-cell">
+                            <button class="btn btn-success btn-sm">
+                                <i class="fas fa-edit"></i>
+                            </button>
+                            <button class="btn btn-danger btn-sm">
+                                <i class="fas fa-trash"></i>
+                            </button>
+                        </td>
+                    </tr>
+                    <tr>
+                        <td><img src="https://via.placeholder.com/40?text=M" class="animal-photo" alt="Mouton"></td>
+                        <td>Moutonnet</td>
+                        <td><span class="badge badge-primary">Mouton</span></td>
+                        <td>Ovin</td>
+                        <td>10/05/2021</td>
+                        <td>2 ans</td>
+                        <td class="actions-cell">
+                            <button class="btn btn-success btn-sm">
+                                <i class="fas fa-edit"></i>
+                            </button>
+                            <button class="btn btn-danger btn-sm">
+                                <i class="fas fa-trash"></i>
+                            </button>
+                        </td>
+                    </tr>
+                    <tr>
+                        <td><img src="https://via.placeholder.com/40?text=P" class="animal-photo" alt="Poule"></td>
+                        <td>Pilou</td>
+                        <td><span class="badge badge-primary">Poule</span></td>
+                        <td>Volaille</td>
+                        <td>22/01/2022</td>
+                        <td>1 an</td>
+                        <td class="actions-cell">
+                            <button class="btn btn-success btn-sm">
+                                <i class="fas fa-edit"></i>
+                            </button>
+                            <button class="btn btn-danger btn-sm">
+                                <i class="fas fa-trash"></i>
+                            </button>
+                        </td>
+                    </tr>
+                    <tr>
+                        <td><img src="https://via.placeholder.com/40?text=C" class="animal-photo" alt="Chèvre"></td>
+                        <td>Biquette</td>
+                        <td><span class="badge badge-primary">Chèvre</span></td>
+                        <td>Caprin</td>
+                        <td>05/11/2019</td>
+                        <td>4 ans</td>
+                        <td class="actions-cell">
+                            <button class="btn btn-success btn-sm">
+                                <i class="fas fa-edit"></i>
+                            </button>
+                            <button class="btn btn-danger btn-sm">
+                                <i class="fas fa-trash"></i>
+                            </button>
+                        </td>
+                    </tr>
+                    <tr>
+                        <td><img src="https://via.placeholder.com/40?text=B" class="animal-photo" alt="Boeuf"></td>
+                        <td>Max</td>
+                        <td><span class="badge badge-primary">Boeuf</span></td>
+                        <td>Bovin</td>
+                        <td>18/07/2018</td>
+                        <td>5 ans</td>
+                        <td class="actions-cell">
+                            <button class="btn btn-success btn-sm">
+                                <i class="fas fa-edit"></i>
+                            </button>
+                            <button class="btn btn-danger btn-sm">
+                                <i class="fas fa-trash"></i>
+                            </button>
+                        </td>
+                    </tr>
+                </tbody>
+            </table>
+        </div>
+    </div>
+
+    <!-- Add Animal Modal -->
+    <div class="modal" id="addAnimalModal">
+        <div class="modal-content">
+            <div class="modal-header">
+                <div class="modal-title">Ajouter un nouvel animal</div>
+                <button class="close-btn">&times;</button>
+            </div>
+            <form id="animalForm">
+                <div class="form-row">
+                    <div class="form-group photo-upload">
+                        <img src="https://via.placeholder.com/100?text=Photo" class="photo-preview"
+                            id="animalPhotoPreview" alt="Preview">
+                        <input type="file" id="animalPhoto" accept="image/*" style="display: none;">
+                        <button type="button" class="btn btn-sm btn-primary"
+                            onclick="document.getElementById('animalPhoto').click()">
+                            <i class="fas fa-upload"></i> Choisir une photo
+                        </button>
+                    </div>
+                    <div class="form-group">
+                        <label for="animalNom">Nom</label>
+                        <input type="text" id="animalNom" placeholder="Ex: Bella, Moutonnet, etc." required>
+                    </div>
+                </div>
+
+                <div class="form-row">
+                    <div class="form-group">
+                        <label for="animalEspece">Espèce</label>
+                        <select id="animalEspece" required>
+                            <option value="">Sélectionner une espèce</option>
+                            <option value="1">Vache</option>
+                            <option value="2">Mouton</option>
+                            <option value="3">Chèvre</option>
+                            <option value="4">Poule</option>
+                            <option value="5">Canard</option>
+                        </select>
+                    </div>
+                    <div class="form-group">
+                        <label for="animalBetail">Type de bétail</label>
+                        <select id="animalBetail" required>
+                            <option value="">Sélectionner un type</option>
+                            <option value="1">Bovin</option>
+                            <option value="2">Ovin</option>
+                            <option value="3">Caprin</option>
+                            <option value="4">Volaille</option>
+                            <option value="5">Porcin</option>
+                        </select>
+                    </div>
+                </div>
+
+                <div class="form-row">
+                    <div class="form-group">
+                        <label for="animalNaissance">Date de naissance</label>
+                        <input type="date" id="animalNaissance" required>
+                    </div>
+                    <div class="form-group">
+                        <label for="animalSexe">Sexe</label>
+                        <select id="animalSexe" required>
+                            <option value="M">Mâle</option>
+                            <option value="F">Femelle</option>
+                        </select>
+                    </div>
+                </div>
+
+                <div class="form-group">
+                    <label for="animalNotes">Notes/Remarques</label>
+                    <textarea id="animalNotes" placeholder="Informations supplémentaires..."></textarea>
+                </div>
+
+                <div class="modal-footer">
+                    <button type="button" class="btn close-btn">Annuler</button>
+                    <button type="submit" class="btn btn-primary">Enregistrer</button>
+                </div>
+            </form>
+        </div>
+    </div>
+
+    <script>
+        // Modal handling
+        const addAnimalBtn = document.getElementById('addAnimalBtn');
+        const addAnimalModal = document.getElementById('addAnimalModal');
+        const closeBtns = document.querySelectorAll('.close-btn');
+        const photoInput = document.getElementById('animalPhoto');
+        const photoPreview = document.getElementById('animalPhotoPreview');
+
+        addAnimalBtn.addEventListener('click', () => {
+            addAnimalModal.style.display = 'flex';
+        });
+
+        closeBtns.forEach(btn => {
+            btn.addEventListener('click', () => {
+                addAnimalModal.style.display = 'none';
+            });
+        });
+
+        // Close modal when clicking outside
+        window.addEventListener('click', (e) => {
+            if (e.target === addAnimalModal) {
+                addAnimalModal.style.display = 'none';
+            }
+        });
+
+        // Photo preview
+        photoInput.addEventListener('change', (e) => {
+            const file = e.target.files[0];
+            if (file) {
+                const reader = new FileReader();
+                reader.onload = (event) => {
+                    photoPreview.src = event.target.result;
+                };
+                reader.readAsDataURL(file);
+            }
+        });
+
+        // Form submission
+        document.getElementById('animalForm').addEventListener('submit', (e) => {
+            e.preventDefault();
+            // Here you would handle the form submission (AJAX call to backend)
+            alert('Animal ajouté avec succès!');
+            addAnimalModal.style.display = 'none';
+            // Reset form
+            e.target.reset();
+            photoPreview.src = 'https://via.placeholder.com/100?text=Photo';
+        });
+
+        // Filter simulation
+        document.querySelector('.btn-warning').addEventListener('click', () => {
+            alert('Filtres appliqués! (simulation)');
+        });
+    </script>
+</body>
+
+</html>
