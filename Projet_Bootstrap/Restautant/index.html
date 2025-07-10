@@ -1,0 +1,1071 @@
+<!DOCTYPE html>
+<html lang="fr">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Le Bon Goût - Restaurant gastronomique</title>
+    <!-- Bootstrap CSS -->
+    <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.0/dist/css/bootstrap.min.css" rel="stylesheet">
+    <!-- Font Awesome -->
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.0.0-beta3/css/all.min.css">
+</head>
+
+<body>
+    <!-- Navigation -->
+    <nav class="navbar navbar-expand-lg navbar-dark bg-dark sticky-top">
+        <div class="container">
+            <a class="navbar-brand" href="#">Le Bon Goût</a>
+            <button class="navbar-toggler" type="button" data-bs-toggle="collapse" data-bs-target="#navbarNav">
+                <span class="navbar-toggler-icon"></span>
+            </button>
+            <div class="collapse navbar-collapse" id="navbarNav">
+                <ul class="navbar-nav">
+                    <li class="nav-item">
+                        <a class="nav-link" href="#accueil">Accueil</a>
+                    </li>
+
+                    <li class="nav-item dropdown">
+                        <a class="nav-link dropdown-toggle" href="#" id="categoriesDropdown" role="button"
+                            data-bs-toggle="dropdown">
+                            Catégories
+                        </a>
+                        <ul class="dropdown-menu">
+                            <li><a class="dropdown-item category-link" href="#aperitifs"
+                                    data-tab="aperitifs-tab">Apéritifs</a></li>
+                            <li><a class="dropdown-item category-link" href="#entrees"
+                                    data-tab="entrees-tab">Entrées</a></li>
+                            <li><a class="dropdown-item category-link" href="#plats" data-tab="plats-tab">Plats</a></li>
+                            <li><a class="dropdown-item category-link" href="#desserts"
+                                    data-tab="desserts-tab">Desserts</a></li>
+                            <li><a class="dropdown-item category-link" href="#boissons"
+                                    data-tab="boissons-tab">Boissons</a></li>
+                        </ul>
+                    </li>
+                    <li class="nav-item">
+                        <a class="nav-link" href="#service">Services</a>
+                    </li>
+                    <li class="nav-item">
+                        <a class="nav-link" href="#contact">Contact</a>
+                    </li>
+                    <li class="nav-item">
+                        <a class="nav-link" href="#reservation">Réservation</a>
+                    </li>
+                </ul>
+            </div>
+        </div>
+    </nav>
+
+    <!-- Hero Section -->
+    <header id="accueil" class="bg-dark text-white text-center py-5"
+        style="background: linear-gradient(rgba(0, 0, 0, 0.7), rgba(0, 0, 0, 0.7)), url(image/accueil.jpeg) no-repeat center center/cover;">
+        <div class="container py-5">
+            <h1 class="display-4 fw-bold">Bienvenue au Bon Goût</h1>
+            <p class="lead">Restaurant gastronomique</p>
+            <a href="#reservation" class="btn btn-danger btn-lg mt-3">Réserver une table</a>
+        </div>
+    </header>
+
+    <!-- Menu Section -->
+    <section id="menu" class="py-5">
+        <div class="container">
+            <div class="row">
+                <div class="col-lg-8">
+                    <h2 class="text-center mb-5">Notre Menu</h2>
+
+                    <ul class="nav nav-tabs" id="menuTabs" role="tablist">
+                        <li class="nav-item" role="presentation">
+                            <button class="nav-link active" id="aperitifs-tab" data-bs-toggle="tab" data-bs-target="#aperitifs"
+                                type="button">Apéritifs</button>
+                        </li>
+                        <li class="nav-item" role="presentation">
+                            <button class="nav-link" id="entrees-tab" data-bs-toggle="tab" data-bs-target="#entrees"
+                                type="button">Entrées</button>
+                        </li>
+                        <li class="nav-item" role="presentation">
+                            <button class="nav-link" id="plats-tab" data-bs-toggle="tab" data-bs-target="#plats"
+                                type="button">Plats</button>
+                        </li>
+                        <li class="nav-item" role="presentation">
+                            <button class="nav-link" id="desserts-tab" data-bs-toggle="tab" data-bs-target="#desserts"
+                                type="button">Desserts</button>
+                        </li>
+                        <li class="nav-item" role="presentation">
+                            <button class="nav-link" id="boissons-tab" data-bs-toggle="tab" data-bs-target="#boissons"
+                                type="button">Boissons</button>
+                        </li>
+                    </ul>
+
+                    <div class="tab-content py-4" id="menuTabsContent">
+                        <!-- Apéritifs -->
+                        <div class="tab-pane fade show active" id="aperitifs" role="tabpanel">
+                            <div class="card mb-3 dish-item" data-name="Assiette de charcuterie maison" data-price="3500">
+                                <div class="row g-0">
+                                    <div class="col-md-8">
+                                        <div class="card-body">
+                                            <div class="d-flex justify-content-between">
+                                                <h5 class="card-title">Assiette de charcuterie maison</h5>
+                                                <span class="price-tag">3500 CFA</span>
+                                            </div>
+                                            <p class="card-text">Sélection de saucissons, jambon et terrines faites maison</p>
+                                        </div>
+                                    </div>
+                                    <div class="col-md-4">
+                                        <img src="image/assiette_de_charcuterie_maison.jpeg" class="img-fluid rounded-end"
+                                            alt="Assiette de charcuterie">
+                                    </div>
+                                </div>
+                            </div>
+
+                            <div class="card mb-3 dish-item" data-name="Toast de foie gras" data-price="4500">
+                                <div class="row g-0">
+                                    <div class="col-md-8">
+                                        <div class="card-body">
+                                            <div class="d-flex justify-content-between">
+                                                <h5 class="card-title">Toast de foie gras</h5>
+                                                <span class="price-tag">4500 CFA</span>
+                                            </div>
+                                            <p class="card-text">Foie gras de canard maison, pain brioché toasté</p>
+                                        </div>
+                                    </div>
+                                    <div class="col-md-4">
+                                        <img src="image/Foie-Gras-French-Toast-860x380.jpg" class="img-fluid rounded-end"
+                                            alt="Toast de foie gras">
+                                    </div>
+                                </div>
+                            </div>
+
+                            <div class="card mb-3 dish-item" data-name="Blinis de courgette" data-price="3500">
+                                <div class="row g-0">
+                                    <div class="col-md-8">
+                                        <div class="card-body">
+                                            <div class="d-flex justify-content-between">
+                                                <h5 class="card-title">Blinis de courgette</h5>
+                                                <span class="price-tag">3500 CFA</span>
+                                            </div>
+                                            <p class="card-text">Changez des habituelles galettes de pommes de terre en
+                                                accompagnement de votre viande de fête. Préparez de savoureux blinis de
+                                                courgette qui raviront les papilles des petits comme des grands. </p>
+                                        </div>
+                                    </div>
+                                    <div class="col-md-4">
+                                        <img src="image/blinis-de-courgette.jpeg" class="img-fluid rounded-end"
+                                            alt="Assiette de charcuterie">
+                                    </div>
+                                </div>
+                            </div>
+
+                            <div class="card mb-3 dish-item" data-name="Pop-corn au Thermomix" data-price="1000">
+                                <div class="row g-0">
+                                    <div class="col-md-8">
+                                        <div class="card-body">
+                                            <div class="d-flex justify-content-between">
+                                                <h5 class="card-title">Pop-corn au Thermomix</h5>
+                                                <span class="price-tag">1000 CFA</span>
+                                            </div>
+                                            <p class="card-text">Rien de plus amusant pour vos enfants que de faire du pop-corn
+                                                maison. Amusez-les en les faisant avec eux et dégustez-les devant un bon film.
+                                                Version sucrée ou salée, c'est une réussite à tous les coups. </p>
+                                        </div>
+                                    </div>
+                                    <div class="col-md-4">
+                                        <img src="image/pop-corn-au-cookeo.jpeg" class="img-fluid rounded-end"
+                                            alt="Toast de foie gras">
+                                    </div>
+                                </div>
+                            </div>
+                        </div>
+
+                        <!-- Entrées -->
+                        <div class="tab-pane fade" id="entrees" role="tabpanel">
+                            <div class="card mb-3 dish-item" data-name="Salade de chèvre chaud" data-price="5000">
+                                <div class="row g-0">
+                                    <div class="col-md-8">
+                                        <div class="card-body">
+                                            <div class="d-flex justify-content-between">
+                                                <h5 class="card-title">Salade de chèvre chaud</h5>
+                                                <span class="price-tag">5000 CFA</span>
+                                            </div>
+                                            <p class="card-text">Salade verte, crottin de chèvre chaud, noix, vinaigrette au
+                                                miel</p>
+                                        </div>
+                                    </div>
+                                    <div class="col-md-4">
+                                        <img src="image/Salade_de_chevre_chaud.jpeg" class="img-fluid rounded-end"
+                                            alt="Salade de chèvre chaud">
+                                    </div>
+                                </div>
+                            </div>
+
+                            <div class="card mb-3 dish-item" data-name="Soupe à l'oignon gratinée" data-price="4000">
+                                <div class="row g-0">
+                                    <div class="col-md-8">
+                                        <div class="card-body">
+                                            <div class="d-flex justify-content-between">
+                                                <h5 class="card-title">Soupe à l'oignon gratinée</h5>
+                                                <span class="price-tag">4000 CFA</span>
+                                            </div>
+                                            <p class="card-text">Recette traditionnelle, gratinée au comté</p>
+                                        </div>
+                                    </div>
+                                    <div class="col-md-4">
+                                        <img src="image/soupe_a_loignon.jpeg" class="img-fluid rounded-end"
+                                            alt="Soupe à l'oignon">
+                                    </div>
+                                </div>
+                            </div>
+
+                            <div class="card mb-3 dish-item" data-name="Oeufs brouillés parfaits" data-price="2500">
+                                <div class="row g-0">
+                                    <div class="col-md-8">
+                                        <div class="card-body">
+                                            <div class="d-flex justify-content-between">
+                                                <h5 class="card-title">Oeufs brouillés parfaits</h5>
+                                                <span class="price-tag">2500 CFA</span>
+                                            </div>
+                                            <p class="card-text">Les œufs brouillés parfaits, c'est le secret d'un brunch réussi
+                                                ou d'un petit-déjeuner raffiné. Ultra crémeux grâce à la crème fraîche et une
+                                                cuisson douce, ils mettent à l'honneur la simplicité d'ingrédients toujours de
+                                                saison.</p>
+                                        </div>
+                                    </div>
+                                    <div class="col-md-4">
+                                        <img src="image/oeufs-brouilles-parfaits.jpeg" class="img-fluid rounded-end"
+                                            alt="Soupe à l'oignon">
+                                    </div>
+                                </div>
+                            </div>
+
+                            <div class="card mb-3 dish-item" data-name="Terrine oeufs macédoine de légumes" data-price="3500">
+                                <div class="row g-0">
+                                    <div class="col-md-8">
+                                        <div class="card-body">
+                                            <div class="d-flex justify-content-between">
+                                                <h5 class="card-title">Terrine oeufs macédoine de légumes</h5>
+                                                <span class="price-tag">3500 CFA</span>
+                                            </div>
+                                            <p class="card-text">Une petite terrine que j'ai trouvé sympa sur une page du
+                                                net.Une petite tranche accompagnée d'une salade verte et le tour est joué pour
+                                                un repas léger</p>
+                                        </div>
+                                    </div>
+                                    <div class="col-md-4">
+                                        <img src="image/terrine_oeufs.jpeg" class="img-fluid rounded-end"
+                                            alt="Soupe à l'oignon">
+                                    </div>
+                                </div>
+                            </div>
+                        </div>
+
+                        <!-- Plats -->
+                        <div class="tab-pane fade" id="plats" role="tabpanel">
+                            <div class="card mb-3 dish-item" data-name="Bœuf bourguignon" data-price="6500">
+                                <div class="row g-0">
+                                    <div class="col-md-8">
+                                        <div class="card-body">
+                                            <div class="d-flex justify-content-between">
+                                                <h5 class="card-title">Bœuf bourguignon</h5>
+                                                <span class="price-tag">6500 CFA</span>
+                                            </div>
+                                            <p class="card-text">Bœuf mariné au vin rouge, lardons, champignons, accompagné de
+                                                pommes de terre</p>
+                                        </div>
+                                    </div>
+                                    <div class="col-md-4">
+                                        <img src="image/boeuf_bourguignon.jpeg" class="img-fluid rounded-end"
+                                            alt="Bœuf bourguignon">
+                                    </div>
+                                </div>
+                            </div>
+
+                            <div class="card mb-3 dish-item" data-name="Filet de bar en croûte de sel" data-price="7500">
+                                <div class="row g-0">
+                                    <div class="col-md-8">
+                                        <div class="card-body">
+                                            <div class="d-flex justify-content-between">
+                                                <h5 class="card-title">Filet de bar en croûte de sel</h5>
+                                                <span class="price-tag">7500 CFA</span>
+                                            </div>
+                                            <p class="card-text">Bar de ligne, cuit en croûte de sel, accompagné de légumes de
+                                                saison</p>
+                                        </div>
+                                    </div>
+                                    <div class="col-md-4">
+                                        <img src="image/Filet_de_bar_en_croute_de_sel.jpeg" class="img-fluid rounded-end"
+                                            alt="Filet de bar">
+                                    </div>
+                                </div>
+                            </div>
+
+                            <div class="card mb-3 dish-item" data-name="Poulet mariné au paprika et citron" data-price="5000">
+                                <div class="row g-0">
+                                    <div class="col-md-8">
+                                        <div class="card-body">
+                                            <div class="d-flex justify-content-between">
+                                                <h5 class="card-title">Poulet mariné au paprika et citron</h5>
+                                                <span class="price-tag">5000 CFA</span>
+                                            </div>
+                                            <p class="card-text">Le poulet mariné au paprika et citron est une recette simple et
+                                                délicieuse qui séduira tous les amateurs de cuisine épicée et acidulée. La
+                                                combinaison du paprika fumé et du citron frais apporte une explosion de saveurs
+                                                à chaque bouchée. Idéale pour un repas en famille ou entre amis</p>
+                                        </div>
+                                    </div>
+                                    <div class="col-md-4">
+                                        <img src="image/poulet-marine-au-paprika-et-citron.jpeg" class="img-fluid rounded-end"
+                                            alt="Filet de bar">
+                                    </div>
+                                </div>
+                            </div>
+
+                            <div class="card mb-3 dish-item" data-name="Couscous royal à préparer la veille" data-price="5000">
+                                <div class="row g-0">
+                                    <div class="col-md-8">
+                                        <div class="card-body">
+                                            <div class="d-flex justify-content-between">
+                                                <h5 class="card-title">Couscous royal à préparer la veille</h5>
+                                                <span class="price-tag">5000 CFA</span>
+                                            </div>
+                                            <p class="card-text">Plongez dans l'authenticité de la cuisine du Maghreb avec ce
+                                                Couscous royal qui promet un véritable festival de saveurs. </p>
+                                        </div>
+                                    </div>
+                                    <div class="col-md-4">
+                                        <img src="image/couscous-royal.jpeg" class="img-fluid rounded-end" alt="Filet de bar">
+                                    </div>
+                                </div>
+                            </div>
+                        </div>
+
+                        <!-- Desserts -->
+                        <div class="tab-pane fade" id="desserts" role="tabpanel">
+                            <div class="card mb-3 dish-item" data-name="Verrines mangue mascarpone" data-price="2500">
+                                <div class="row g-0">
+                                    <div class="col-md-8">
+                                        <div class="card-body">
+                                            <div class="d-flex justify-content-between">
+                                                <h5 class="card-title">Verrines mangue mascarpone</h5>
+                                                <span class="price-tag">2500 CFA</span>
+                                            </div>
+                                            <p class="card-text">Verrines mangue mascarpone associent légèreté et gourmandise
+                                                pour un dessert qui transportera vos invités ! </p>
+                                        </div>
+                                    </div>
+                                    <div class="col-md-4">
+                                        <img src="image/verrines_mangue-mascarpone.jpeg" class="img-fluid rounded-end"
+                                            alt="Tarte tatin">
+                                    </div>
+                                </div>
+                            </div>
+
+                            <div class="card mb-3 dish-item" data-name="Crème brûlée" data-price="3000">
+                                <div class="row g-0">
+                                    <div class="col-md-8">
+                                        <div class="card-body">
+                                            <div class="d-flex justify-content-between">
+                                                <h5 class="card-title">Crème brûlée</h5>
+                                                <span class="price-tag">3000 CFA</span>
+                                            </div>
+                                            <p class="card-text">Crème vanille à la texture onctueuse, caramélisée à la commande
+                                            </p>
+                                        </div>
+                                    </div>
+                                    <div class="col-md-4">
+                                        <img src="image/Creme_brulee.jpeg" class="img-fluid rounded-end" alt="Crème brûlée">
+                                    </div>
+                                </div>
+                            </div>
+
+                            <div class="card mb-3 dish-item" data-name="Glace express aux fraises" data-price="2500">
+                                <div class="row g-0">
+                                    <div class="col-md-8">
+                                        <div class="card-body">
+                                            <div class="d-flex justify-content-between">
+                                                <h5 class="card-title">Glace express aux fraises</h5>
+                                                <span class="price-tag">2500 CFA</span>
+                                            </div>
+                                            <p class="card-text">Cette glace aux fraises Tagada au Thermomix est un dessert haut
+                                                en couleur. La saveur si particulière du fameux bonbon est parfaitement
+                                                restituée et le sorbet obtenu a une couleur rose flashy très jolie. Un dessert
+                                                glacé qui plait à tout le monde de 7 à 77 ans.</p>
+                                        </div>
+                                    </div>
+                                    <div class="col-md-4">
+                                        <img src="image/glace-express-aux-fraises-au-thermomix.jpeg"
+                                            class="img-fluid rounded-end" alt="Crème brûlée">
+                                    </div>
+                                </div>
+                            </div>
+
+                            <div class="card mb-3 dish-item" data-name="Gaufres sucrées" data-price="2000">
+                                <div class="row g-0">
+                                    <div class="col-md-8">
+                                        <div class="card-body">
+                                            <div class="d-flex justify-content-between">
+                                                <h5 class="card-title">Gaufres sucrées</h5>
+                                                <span class="price-tag">2000 CFA</span>
+                                            </div>
+                                            <p class="card-text">Cette recette de gaufres est un vrai délice ! Idéale pour fêter
+                                                Mardi Gras avec gourmandise, elle vous replongera en enfance et vous rappellera
+                                                les délicieuses gaufres des fêtes foraines.</p>
+                                        </div>
+                                    </div>
+                                    <div class="col-md-4">
+                                        <img src="image/gaufres-sucrees.jpeg" class="img-fluid rounded-end" alt="Crème brûlée">
+                                    </div>
+                                </div>
+                            </div>
+                        </div>
+
+                        <!-- Boissons -->
+                        <div class="tab-pane fade" id="boissons" role="tabpanel">
+                            <div class="card mb-3 dish-item" data-name="Cocktail litchi & cranberry" data-price="1500">
+                                <div class="row g-0">
+                                    <div class="col-md-8">
+                                        <div class="card-body">
+                                            <div class="d-flex justify-content-between">
+                                                <h5 class="card-title">Cocktail litchi & cranberry</h5>
+                                                <span class="price-tag">1500 CFA</span>
+                                            </div>
+                                            <p class="card-text">Pour associer l'exotisme et le nordique, ce cocktail sera
+                                                parfait pour vos apéritifs de Noël et des fêtes de fin d'année!</p>
+                                        </div>
+                                    </div>
+                                    <div class="col-md-4">
+                                        <img src="image/cocktail-litchi.webp" class="img-fluid rounded-end" alt="Tarte tatin">
+                                    </div>
+                                </div>
+                            </div>
+
+                            <div class="card mb-3 dish-item" data-name="Vin de noyer du périgord" data-price="2000">
+                                <div class="row g-0">
+                                    <div class="col-md-8">
+                                        <div class="card-body">
+                                            <div class="d-flex justify-content-between">
+                                                <h5 class="card-title">Vin de noyer du périgord</h5>
+                                                <span class="price-tag">2000 CFA</span>
+                                            </div>
+                                            <p class="card-text">Crème vanille à la texture onctueuse, caramélisée à la commande
+                                            </p>
+                                        </div>
+                                    </div>
+                                    <div class="col-md-4">
+                                        <img src="image/vin-de-noyer-du-perigord.jpeg" class="img-fluid rounded-end"
+                                            alt="Crème brûlée">
+                                    </div>
+                                </div>
+                            </div>
+
+                            <div class="card mb-3 dish-item" data-name="Smoothie orange, pomme et citron" data-price="1000">
+                                <div class="row g-0">
+                                    <div class="col-md-8">
+                                        <div class="card-body">
+                                            <div class="d-flex justify-content-between">
+                                                <h5 class="card-title">Smoothie orange, pomme et citron</h5>
+                                                <span class="price-tag">1000 CFA</span>
+                                            </div>
+                                            <p class="card-text">Voilà un smoothie délicieusement acidulé et vitaminé, qui vous
+                                                permettra de bien commencer la journée.</p>
+                                        </div>
+                                    </div>
+                                    <div class="col-md-4">
+                                        <img src="image/smoothie-orange-pomme-et-citron.jpeg" class="img-fluid rounded-end"
+                                            alt="Crème brûlée">
+                                    </div>
+                                </div>
+                            </div>
+
+                            <div class="card mb-3 dish-item" data-name="Ratafia de cerises" data-price="2000">
+                                <div class="row g-0">
+                                    <div class="col-md-8">
+                                        <div class="card-body">
+                                            <div class="d-flex justify-content-between">
+                                                <h5 class="card-title">Ratafia de cerises</h5>
+                                                <span class="price-tag">2000 CFA</span>
+                                            </div>
+                                            <p class="card-text">Le Ratafia de Cerise est un apéritif réalisé avec de
+                                                l'eau-de-vie de Cidre et des Cerises. S'apprécie nature, bien frais à l'apéritif
+                                                ou en cocktail.</p>
+                                        </div>
+                                    </div>
+                                    <div class="col-md-4">
+                                        <img src="image/ratafia-de-cerises.jpeg" class="img-fluid rounded-end"
+                                            alt="Crème brûlée">
+                                    </div>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+                
+                <!-- Panier de commande -->
+                <div class="col-lg-4">
+                    <div class="card" id="orderSummary">
+                        <div class="card-header bg-danger text-white">
+                            <h5 class="mb-0">Votre Commande</h5>
+                        </div>
+                        <div class="card-body">
+                            <div id="selectedItems">
+                                <p class="text-muted">Aucun plat sélectionné</p>
+                            </div>
+                            <hr>
+                            <div class="d-flex justify-content-between">
+                                <h5>Total:</h5>
+                                <h5 id="totalAmount">0 CFA</h5>
+                            </div>
+                        </div>
+                        <div class="card-footer">
+                            <button class="btn btn-danger w-100" id="proceedToReservation">
+                                Procéder à la réservation
+                            </button>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- Catégories Section -->
+    <section id="categorie" class="py-5 bg-light">
+        <div class="container">
+            <h2 class="text-center mb-5">Nos Catégories</h2>
+
+            <div class="row">
+                <div class="col-md-4 mb-4">
+                    <div class="card h-100">
+                        <div class="card-body">
+                            <h5 class="card-title">Apéritifs</h5>
+                            <ul class="list-group list-group-flush">
+                                <li class="list-group-item">Assiette de charcuterie</li>
+                                <li class="list-group-item">Toast de foie gras</li>
+                                <li class="list-group-item">Blinis de courgette</li>
+                            </ul>
+                        </div>
+                    </div>
+                </div>
+
+                <div class="col-md-4 mb-4">
+                    <div class="card h-100">
+                        <div class="card-body">
+                            <h5 class="card-title">Entrées</h5>
+                            <ul class="list-group list-group-flush">
+                                <li class="list-group-item">Salade de chèvre chaud</li>
+                                <li class="list-group-item">Soupe à l'oignon</li>
+                                <li class="list-group-item">Oeufs brouillés parfaits</li>
+                            </ul>
+                        </div>
+                    </div>
+                </div>
+
+                <div class="col-md-4 mb-4">
+                    <div class="card h-100">
+                        <div class="card-body">
+                            <h5 class="card-title">Plats principaux</h5>
+                            <ul class="list-group list-group-flush">
+                                <li class="list-group-item">Bœuf bourguignon</li>
+                                <li class="list-group-item">Filet de bar</li>
+                                <li class="list-group-item">Poulet mariné au paprika</li>
+                            </ul>
+                        </div>
+                    </div>
+                </div>
+
+                <div class="col-md-4 mb-4">
+                    <div class="card h-100">
+                        <div class="card-body">
+                            <h5 class="card-title">Plats traditionnels</h5>
+                            <ul class="list-group list-group-flush">
+                                <li class="list-group-item">Couscous royal</li>
+                                <li class="list-group-item">Choucroute</li>
+                                <li class="list-group-item">Coq au vin</li>
+                            </ul>
+                        </div>
+                    </div>
+                </div>
+
+                <div class="col-md-4 mb-4">
+                    <div class="card h-100">
+                        <div class="card-body">
+                            <h5 class="card-title">Desserts</h5>
+                            <ul class="list-group list-group-flush">
+                                <li class="list-group-item">Verrines mangue mascarpone</li>
+                                <li class="list-group-item">Crème brûlée</li>
+                                <li class="list-group-item">Gaufres sucrées</li>
+                            </ul>
+                        </div>
+                    </div>
+                </div>
+
+                <div class="col-md-4 mb-4">
+                    <div class="card h-100">
+                        <div class="card-body">
+                            <h5 class="card-title">Boissons</h5>
+                            <ul class="list-group list-group-flush">
+                                <li class="list-group-item">Cocktail litchi</li>
+                                <li class="list-group-item">Vin de noyer</li>
+                                <li class="list-group-item">Smoothie orange</li>
+                            </ul>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- Services Section -->
+    <section id="service" class="py-5">
+        <div class="container">
+            <h2 class="text-center mb-5">Nos Services</h2>
+
+            <div class="row">
+                <div class="col-md-6 mb-4">
+                    <div class="card">
+                        <div class="card-body">
+                            <h5 class="card-title"><i class="fas fa-concierge-bell me-2"></i>Service en salle</h5>
+                            <p class="card-text">Notre équipe de serveurs professionnels est à votre disposition pour
+                                vous conseiller et vous servir avec le plus grand soin.</p>
+                        </div>
+                    </div>
+                </div>
+
+                <div class="col-md-6 mb-4">
+                    <div class="card">
+                        <div class="card-body">
+                            <h5 class="card-title"><i class="fas fa-calendar-check me-2"></i>Réservations</h5>
+                            <p class="card-text">Réservez votre table par téléphone ou directement sur notre site
+                                internet.</p>
+                        </div>
+                    </div>
+                </div>
+
+                <div class="col-md-6 mb-4">
+                    <div class="card">
+                        <div class="card-body">
+                            <h5 class="card-title"><i class="fas fa-glass-cheers me-2"></i>Événements</h5>
+                            <p class="card-text">Nous organisons des événements spéciaux (mariages, anniversaires,
+                                séminaires) dans notre salle privée.</p>
+                        </div>
+                    </div>
+                </div>
+
+                <div class="col-md-6 mb-4">
+                    <div class="card">
+                        <div class="card-body">
+                            <h5 class="card-title"><i class="fas fa-utensils me-2"></i>Traiteur</h5>
+                            <p class="card-text">Service de traiteur disponible pour vos événements à domicile ou en
+                                entreprise.</p>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- Réservation Section -->
+    <section id="reservation" class="py-5 bg-light">
+        <div class="container">
+            <h2 class="text-center mb-5">Réservation en ligne</h2>
+
+            <div class="row justify-content-center">
+                <div class="col-lg-8">
+                    <form id="reservationForm">
+                        <div class="row">
+                            <div class="col-md-6 mb-3">
+                                <label for="reservationName" class="form-label">Nom complet *</label>
+                                <input type="text" class="form-control" id="reservationName" required>
+                            </div>
+                            <div class="col-md-6 mb-3">
+                                <label for="reservationEmail" class="form-label">Email *</label>
+                                <input type="email" class="form-control" id="reservationEmail" required>
+                            </div>
+                        </div>
+
+                        <div class="row">
+                            <div class="col-md-6 mb-3">
+                                <label for="reservationPhone" class="form-label">Téléphone *</label>
+                                <input type="tel" class="form-control" id="reservationPhone" required>
+                            </div>
+                            <div class="col-md-6 mb-3">
+                                <label for="reservationDate" class="form-label">Date *</label>
+                                <input type="date" class="form-control" id="reservationDate" required>
+                            </div>
+                        </div>
+
+                        <div class="row">
+                            <div class="col-md-6 mb-3">
+                                <label for="reservationTime" class="form-label">Heure *</label>
+                                <input type="time" class="form-control" id="reservationTime" required>
+                            </div>
+                            <div class="col-md-6 mb-3">
+                                <label for="reservationGuests" class="form-label">Nombre de personnes *</label>
+                                <select class="form-select" id="reservationGuests" required>
+                                    <option value="1">1 personne</option>
+                                    <option value="2">2 personnes</option>
+                                    <option value="3">3 personnes</option>
+                                    <option value="4">4 personnes</option>
+                                    <option value="5">5 personnes</option>
+                                    <option value="6">6 personnes</option>
+                                    <option value="7">7 personnes</option>
+                                    <option value="8">8 personnes</option>
+                                    <option value="9">9 personnes</option>
+                                    <option value="10">10 personnes</option>
+                                    <option value="10+">Plus de 10 (groupe)</option>
+                                </select>
+                            </div>
+                        </div>
+
+                        <div class="mb-3">
+                            <label class="form-label">Votre commande</label>
+                            <div id="reservationOrderItems" class="border p-3 mb-3">
+                                <p class="text-muted mb-0">Aucun plat sélectionné</p>
+                            </div>
+                            <div class="d-flex justify-content-between mb-3">
+                                <h5>Total:</h5>
+                                <h5 id="reservationTotalAmount">0 CFA</h5>
+                            </div>
+                        </div>
+
+                        <div class="mb-3">
+                            <label for="reservationNotes" class="form-label">Demandes spéciales</label>
+                            <textarea class="form-control" id="reservationNotes" rows="3"></textarea>
+                        </div>
+
+                        <div class="d-grid">
+                            <button type="submit" class="btn btn-danger">Réserver</button>
+                        </div>
+                    </form>
+
+                    <div id="reservationSuccess" class="alert alert-success mt-3 d-none">
+                        Votre réservation a bien été enregistrée. Nous vous avons envoyé un email de confirmation.
+                    </div>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- Contact Section -->
+    <section id="contact" class="py-5">
+        <div class="container">
+            <h2 class="text-center mb-5">Contactez-nous</h2>
+
+            <div class="row">
+                <div class="col-lg-6 mb-4">
+                    <div class="card h-100">
+                        <div class="card-body">
+                            <h5 class="card-title"><i class="fas fa-map-marker-alt me-2"></i>Adresse</h5>
+                            <p class="card-text">Secteur 9/Mongo-Tchad</p>
+
+                            <h5 class="card-title mt-4"><i class="fas fa-phone me-2"></i>Téléphone</h5>
+                            <p class="card-text">+235 61 40 40 61</p>
+                            <p class="card-text">+235 66 39 68 16</p>
+                            <p class="card-text">+235 66 18 61 16</p>
+
+                            <h5 class="card-title mt-4"><i class="fas fa-clock me-2"></i>Horaires</h5>
+                            <p class="card-text">
+                                Lundi au vendredi : 12h-14h30 et 19h-22h30<br>
+                                Samedi : 12h-15h et 19h-23h<br>
+                                Dimanche : 12h-15h
+                            </p>
+
+                            <h5 class="card-title mt-4"><i class="fas fa-envelope me-2"></i>Email</h5>
+                            <p class="card-text">lebon-gout@gmail.com</p>
+
+                            <div class="mt-4 ratio ratio-16x9">
+                                <iframe
+                                    src="https://www.google.com/maps/embed?pb=!1m10!1m8!1m3!1d1950.0422955199922!2d18.691715!3d12.174644!3m2!1i1024!2i768!4f13.1!5e0!3m2!1sfr!2sng!4v1750686930215!5m2!1sfr!2sng"
+                                    allowfullscreen="" loading="lazy" referrerpolicy="no-referrer-when-downgrade">
+                                </iframe>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+
+                <div class="col-lg-6 mb-4">
+                    <div class="card h-100">
+                        <div class="card-body">
+                            <h5 class="card-title">Formulaire de contact</h5>
+                            <form id="contactForm">
+                                <div class="mb-3">
+                                    <label for="contactName" class="form-label">Nom *</label>
+                                    <input type="text" class="form-control" id="contactName" required>
+                                </div>
+
+                                <div class="mb-3">
+                                    <label for="contactEmail" class="form-label">Email *</label>
+                                    <input type="email" class="form-control" id="contactEmail" required>
+                                </div>
+
+                                <div class="mb-3">
+                                    <label for="contactSubject" class="form-label">Sujet *</label>
+                                    <input type="text" class="form-control" id="contactSubject" required>
+                                </div>
+
+                                <div class="mb-3">
+                                    <label for="contactMessage" class="form-label">Message *</label>
+                                    <textarea class="form-control" id="contactMessage" rows="5" required></textarea>
+                                </div>
+
+                                <div class="d-grid">
+                                    <button type="submit" class="btn btn-danger">Envoyer</button>
+                                </div>
+                            </form>
+
+                            <div id="contactSuccess" class="alert alert-success mt-3 d-none">
+                                Votre message a bien été envoyé. Nous vous répondrons dans les plus brefs délais.
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- Footer -->
+    <footer class="bg-dark text-white py-4">
+        <div class="container">
+            <div class="row">
+                <div class="col-md-6 text-center text-md-start">
+                    <p class="mb-0">&copy; 2025 Le Bon Goût - Tous droits réservés</p>
+                </div>
+                <div class="col-md-6 text-center text-md-end">
+                    <a href="#" class="text-white me-3"><i class="fab fa-facebook-f"></i></a>
+                    <a href="#" class="text-white me-3"><i class="fab fa-instagram"></i></a>
+                    <a href="#" class="text-white me-3"><i class="fab fa-twitter"></i></a>
+                    <a href="#" class="text-white"><i class="fab fa-tripadvisor"></i></a>
+                </div>
+            </div>
+            <div class="row mt-3">
+                <div class="col-12 text-center">
+                    <p class="mb-0 small">
+                        <a href="#" class="text-white text-decoration-none me-3">Mentions légales</a>
+                        <a href="#" class="text-white text-decoration-none">Politique de confidentialité</a>
+                    </p>
+                </div>
+            </div>
+        </div>
+    </footer>
+
+    <!-- Modal de réservation rapide -->
+    <div class="modal fade" id="reservationModal" tabindex="-1" aria-hidden="true">
+        <div class="modal-dialog">
+            <div class="modal-content">
+                <div class="modal-header">
+                    <h5 class="modal-title" id="reservationModalLabel">Réserver <span id="modalDishName"></span></h5>
+                    <button type="button" class="btn-close" data-bs-dismiss="modal" aria-label="Close"></button>
+                </div>
+                <div class="modal-body">
+                    <form id="quickReservationForm">
+                        <input type="hidden" id="quickReservationDish">
+
+                        <div class="mb-3">
+                            <label for="quickReservationName" class="form-label">Nom complet *</label>
+                            <input type="text" class="form-control" id="quickReservationName" required>
+                        </div>
+
+                        <div class="mb-3">
+                            <label for="quickReservationPhone" class="form-label">Téléphone *</label>
+                            <input type="tel" class="form-control" id="quickReservationPhone" required>
+                        </div>
+
+                        <div class="row">
+                            <div class="col-md-6 mb-3">
+                                <label for="quickReservationDate" class="form-label">Date *</label>
+                                <input type="date" class="form-control" id="quickReservationDate" required>
+                            </div>
+                            <div class="col-md-6 mb-3">
+                                <label for="quickReservationTime" class="form-label">Heure *</label>
+                                <input type="time" class="form-control" id="quickReservationTime" required>
+                            </div>
+                        </div>
+
+                        <div class="mb-3">
+                            <label for="quickReservationGuests" class="form-label">Nombre de personnes *</label>
+                            <select class="form-select" id="quickReservationGuests" required>
+                                <option value="1">1 personne</option>
+                                <option value="2">2 personnes</option>
+                                <option value="3">3 personnes</option>
+                                <option value="4">4 personnes</option>
+                            </select>
+                        </div>
+
+                        <div class="d-grid">
+                            <button type="submit" class="btn btn-danger">Confirmer la réservation</button>
+                        </div>
+                    </form>
+                </div>
+            </div>
+        </div>
+    </div>
+
+    <!-- Bootstrap JS -->
+    <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.0/dist/js/bootstrap.bundle.min.js"></script>
+
+    <script>
+        // Gestion des clics sur les liens de catégories
+        document.querySelectorAll('.category-link').forEach(link => {
+            link.addEventListener('click', function (e) {
+                e.preventDefault();
+
+                // Récupérer l'ID de l'onglet à activer
+                const tabId = this.getAttribute('data-tab');
+
+                // Trouver le bouton de l'onglet correspondant
+                const tabButton = document.getElementById(tabId);
+
+                if (tabButton) {
+                    // Activer l'onglet avec Bootstrap
+                    const tab = new bootstrap.Tab(tabButton);
+                    tab.show();
+
+                    // Faire défiler jusqu'à la section menu
+                    document.getElementById('menu').scrollIntoView({ behavior: 'smooth' });
+                }
+            });
+        });
+
+        // Gestion de la sélection des plats
+        let selectedItems = [];
+        
+        document.querySelectorAll('.dish-item').forEach(item => {
+            item.addEventListener('click', function() {
+                const name = this.getAttribute('data-name');
+                const price = parseInt(this.getAttribute('data-price'));
+                
+                // Vérifier si l'élément est déjà sélectionné
+                const index = selectedItems.findIndex(item => item.name === name);
+                
+                if (index === -1) {
+                    // Ajouter à la sélection
+                    selectedItems.push({ name, price });
+                    this.classList.add('selected');
+                } else {
+                    // Retirer de la sélection
+                    selectedItems.splice(index, 1);
+                    this.classList.remove('selected');
+                }
+                
+                updateOrderSummary();
+            });
+        });
+        
+        // Mettre à jour le résumé de la commande
+        function updateOrderSummary() {
+            const selectedItemsContainer = document.getElementById('selectedItems');
+            const reservationItemsContainer = document.getElementById('reservationOrderItems');
+            const totalAmountElement = document.getElementById('totalAmount');
+            const reservationTotalElement = document.getElementById('reservationTotalAmount');
+            
+            let total = 0;
+            
+            if (selectedItems.length === 0) {
+                selectedItemsContainer.innerHTML = '<p class="text-muted">Aucun plat sélectionné</p>';
+                reservationItemsContainer.innerHTML = '<p class="text-muted mb-0">Aucun plat sélectionné</p>';
+            } else {
+                let itemsHTML = '';
+                selectedItems.forEach(item => {
+                    itemsHTML += `
+                        <div class="d-flex justify-content-between mb-2">
+                            <span>${item.name}</span>
+                            <span>${item.price} CFA</span>
+                        </div>
+                    `;
+                    total += item.price;
+                });
+                
+                selectedItemsContainer.innerHTML = itemsHTML;
+                reservationItemsContainer.innerHTML = itemsHTML;
+            }
+            
+            totalAmountElement.textContent = `${total} CFA`;
+            reservationTotalElement.textContent = `${total} CFA`;
+        }
+        
+        // Bouton "Procéder à la réservation"
+        document.getElementById('proceedToReservation').addEventListener('click', function() {
+            if (selectedItems.length === 0) {
+                alert('Veuillez sélectionner au moins un plat avant de procéder à la réservation.');
+                return;
+            }
+            
+            document.getElementById('reservation').scrollIntoView({ behavior: 'smooth' });
+        });
+        
+        // Initialisation du modal de réservation rapide
+        var reservationModal = document.getElementById('reservationModal');
+        reservationModal.addEventListener('show.bs.modal', function (event) {
+            var button = event.relatedTarget;
+            var platName = button.getAttribute('data-plat');
+
+            document.getElementById('modalDishName').textContent = platName;
+            document.getElementById('quickReservationDish').value = platName;
+        });
+
+        // Gestion du formulaire de réservation rapide
+        document.getElementById('quickReservationForm').addEventListener('submit', function (e) {
+            e.preventDefault();
+
+            // Récupérer les valeurs du formulaire modal
+            var plat = document.getElementById('quickReservationDish').value;
+            var name = document.getElementById('quickReservationName').value;
+            var phone = document.getElementById('quickReservationPhone').value;
+            var date = document.getElementById('quickReservationDate').value;
+            var time = document.getElementById('quickReservationTime').value;
+            var guests = document.getElementById('quickReservationGuests').value;
+
+            // Pré-remplir le formulaire principal
+            document.getElementById('reservationDish').value = plat;
+            document.getElementById('reservationName').value = name;
+            document.getElementById('reservationPhone').value = phone;
+            document.getElementById('reservationDate').value = date;
+            document.getElementById('reservationTime').value = time;
+            document.getElementById('reservationGuests').value = guests;
+
+            // Fermer le modal
+            var modal = bootstrap.Modal.getInstance(reservationModal);
+            modal.hide();
+
+            // Faire défiler jusqu'au formulaire de réservation
+            document.getElementById('reservation').scrollIntoView({ behavior: 'smooth' });
+        });
+
+        // Gestion du formulaire de réservation principal
+        document.getElementById('reservationForm').addEventListener('submit', function (e) {
+            e.preventDefault();
+
+            // Afficher le message de succès
+            document.getElementById('reservationSuccess').classList.remove('d-none');
+
+            // Faire défiler jusqu'au message
+            document.getElementById('reservationSuccess').scrollIntoView({ behavior: 'smooth' });
+
+            // Réinitialiser le formulaire et la sélection
+            this.reset();
+            selectedItems = [];
+            updateOrderSummary();
+            document.querySelectorAll('.dish-item.selected').forEach(item => {
+                item.classList.remove('selected');
+            });
+        });
+
+        // Gestion du formulaire de contact
+        document.getElementById('contactForm').addEventListener('submit', function (e) {
+            e.preventDefault();
+
+            // Afficher le message de succès
+            document.getElementById('contactSuccess').classList.remove('d-none');
+
+            // Faire défiler jusqu'au message
+            document.getElementById('contactSuccess').scrollIntoView({ behavior: 'smooth' });
+
+            // Réinitialiser le formulaire
+            this.reset();
+        });
+
+        // Définir la date minimale pour les réservations (aujourd'hui)
+        var today = new Date().toISOString().split('T')[0];
+        document.getElementById('reservationDate').min = today;
+        document.getElementById('quickReservationDate').min = today;
+    </script>
+</body>
+
+</html>
