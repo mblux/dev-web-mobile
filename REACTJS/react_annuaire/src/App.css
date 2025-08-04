@@ -1,0 +1,141 @@
+* {
+  box-sizing: border-box;
+  font-family: Arial, sans-serif;
+  margin: 0;
+  padding: 0;
+}
+
+body {
+  background-color: #f2f2f2;
+  padding: 20px;
+}
+
+.container {
+  max-width: 1200px;
+  margin: auto;
+}
+
+h1 {
+  text-align: center;
+  margin-bottom: 22px;
+  color: #000;
+}
+
+.filtre {
+  padding: 10px;
+  border-radius: 8px;
+  display: flex;
+  flex-wrap: wrap;
+  gap: 10px;
+  margin-bottom: 30px;
+}
+
+.filtre-container {
+  background: #fff;
+  box-shadow: 0 2px 4px rgba(0, 0, 0, 0.1);
+  padding-top: 10px;
+  padding-left: 20px;
+}
+
+.filtre select,
+.filtre input {
+  padding: 10px;
+  font-size: 16px;
+  border-radius: 5px;
+  border: 1px solid #ccc;
+}
+
+.filtre button {
+  padding: 10px 15px;
+  font-size: 16px;
+  border: none;
+  border-radius: 5px;
+  cursor: pointer;
+}
+
+.filtre .apply {
+  background-color: #0d6efd;
+  color: white;
+}
+
+.filtre .reset {
+  background-color: #0d6efd;
+  color: white;
+}
+
+.cards {
+  display: grid;
+  grid-template-columns: repeat(auto-fill, minmax(280px, 1fr));
+  gap: 10px;
+  color: #000;
+}
+
+.card {
+  background: white;
+  border-radius: 10px;
+  padding: 20px;
+  box-shadow: 0 1px 5px rgba(0, 0, 0, 0.1);
+  transition: 0.5s;
+}
+
+.card:hover {
+  transform: scaleY(1.1);
+}
+
+.card h2 {
+  color: #007bff;
+  margin-bottom: 10px;
+}
+
+.card p {
+  margin: 6px 0;
+}
+
+.badge {
+  padding: 5px 10px;
+  border-radius: 4px;
+  font-size: 14px;
+  color: white;
+}
+
+.badge.actif {
+  background-color: #28a745;
+}
+
+.badge.inactif {
+  background-color: #dc3545;
+}
+
+.skills {
+  margin-top: 5px;
+}
+
+.skills span {
+  display: inline-block;
+  background: #e9f1ff;
+  color: #007bff;
+  padding: 5px 10px;
+  border-radius: 15px;
+  font-size: 13px;
+  margin: 3px 5px 0 0;
+}
+
+@media (max-width: 600px) {
+  .filtre {
+    flex-direction: column;
+    align-items: stretch;
+  }
+
+  .filtre select,
+  .filtre input,
+  .filtre button {
+    width: 100%;
+  }
+}
+
+@media (min-width: 1024px) {
+  .cards {
+    display: grid;
+    grid-template-columns: repeat(3, auto);
+  }
+}

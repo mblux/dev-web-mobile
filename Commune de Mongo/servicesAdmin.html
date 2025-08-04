@@ -1,0 +1,2113 @@
+<!DOCTYPE html>
+<html lang="fr">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Services Administratifs - Mairie de Mongo</title>
+    <style>
+        /* Styles de base (identique à la page d'accueil) */
+        * {
+            margin: 0;
+            padding: 0;
+            box-sizing: border-box;
+            font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
+        }
+
+        :root {
+            --primary-color: #1a5276;
+            --secondary-color: #2980b9;
+            --accent-color: #e67e22;
+            --light-color: #f5f5f5;
+            --dark-color: #333;
+            --success-color: #27ae60;
+        }
+
+        body {
+            line-height: 1.6;
+            color: var(--dark-color);
+            background-color: #f9f9f9;
+        }
+
+        a {
+            text-decoration: none;
+            color: var(--primary-color);
+        }
+
+        ul {
+            list-style: none;
+        }
+
+        .container {
+            max-width: 1200px;
+            margin: 0 auto;
+            padding: 0 20px;
+        }
+
+        .btn {
+            display: inline-block;
+            padding: 10px 20px;
+            background: var(--primary-color);
+            color: white;
+            border: none;
+            border-radius: 5px;
+            cursor: pointer;
+            transition: all 0.3s ease;
+        }
+
+        .btn:hover {
+            background: var(--secondary-color);
+            transform: translateY(-2px);
+        }
+
+        .text-center {
+            text-align: center;
+        }
+
+        .section-padding {
+            padding: 60px 0;
+        }
+
+        /* Header (identique à la page d'accueil) */
+        header {
+            background: white;
+            box-shadow: 0 2px 10px rgba(0, 0, 0, 0.1);
+            position: sticky;
+            top: 0;
+            z-index: 100;
+        }
+
+        .header-container {
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+            padding: 15px 0;
+        }
+
+        .logo {
+            display: flex;
+            align-items: center;
+        }
+
+        .logo img {
+            width: 60px;
+            height: auto;
+            margin-right: 10px;
+        }
+
+        .logo-text h1 {
+            font-size: 1.5rem;
+            color: var(--primary-color);
+        }
+
+        .logo-text p {
+            font-size: 0.8rem;
+            color: var(--dark-color);
+        }
+
+        nav ul {
+            display: flex;
+        }
+
+        nav ul li {
+            margin-left: 20px;
+        }
+
+        nav ul li a {
+            color: var(--dark-color);
+            font-weight: 500;
+            transition: color 0.3s ease;
+        }
+
+        nav ul li a:hover {
+            color: var(--primary-color);
+        }
+
+        .mobile-menu {
+            display: none;
+            font-size: 1.5rem;
+            cursor: pointer;
+        }
+
+        /* Bannière de la page */
+        .page-banner {
+            background: linear-gradient(rgba(0, 0, 0, 0.6), rgba(0, 0, 0, 0.6)), url('images/reine.jpeg') no-repeat center center/cover;
+            height: 30vh;
+            display: flex;
+            align-items: center;
+            color: white;
+            text-align: center;
+        }
+
+        .page-banner h1 {
+            font-size: 2.5rem;
+            margin-bottom: 20px;
+        }
+
+        /* Fil d'Ariane */
+        .breadcrumb {
+            padding: 15px 0;
+            background: var(--light-color);
+        }
+
+        .breadcrumb ul {
+            display: flex;
+        }
+
+        .breadcrumb ul li {
+            margin-right: 10px;
+        }
+
+        .breadcrumb ul li:after {
+            content: '>';
+            margin-left: 10px;
+            color: var(--dark-color);
+        }
+
+        .breadcrumb ul li:last-child:after {
+            content: '';
+        }
+
+        .breadcrumb ul li a {
+            color: var(--primary-color);
+        }
+
+        /* Section des services */
+        .services-intro {
+            text-align: center;
+            margin-bottom: 40px;
+        }
+
+        .services-intro p {
+            max-width: 800px;
+            margin: 0 auto;
+        }
+
+        .services-tabs {
+            display: flex;
+            justify-content: center;
+            margin-bottom: 30px;
+            flex-wrap: wrap;
+        }
+
+        .tab-btn {
+            padding: 10px 20px;
+            background: var(--light-color);
+            border: none;
+            cursor: pointer;
+            transition: all 0.3s ease;
+            margin: 5px;
+        }
+
+        .tab-btn.active {
+            background: var(--primary-color);
+            color: white;
+        }
+
+        .tab-btn:hover:not(.active) {
+            background: #ddd;
+        }
+
+        .services-grid {
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(350px, 1fr));
+            gap: 30px;
+        }
+
+        .service-card {
+            background: white;
+            border-radius: 5px;
+            overflow: hidden;
+            box-shadow: 0 5px 15px rgba(0, 0, 0, 0.1);
+            transition: transform 0.3s ease;
+        }
+
+        .service-card:hover {
+            transform: translateY(-10px);
+        }
+
+        .service-icon {
+            background: var(--primary-color);
+            color: white;
+            padding: 20px;
+            text-align: center;
+            font-size: 2rem;
+        }
+
+        .service-content {
+            padding: 20px;
+        }
+
+        .service-content h3 {
+            margin-bottom: 15px;
+            color: var(--primary-color);
+        }
+
+        .service-content p {
+            margin-bottom: 15px;
+        }
+
+        .service-meta {
+            display: flex;
+            justify-content: space-between;
+            margin-top: 20px;
+            font-size: 0.9rem;
+            color: #666;
+        }
+
+        /* Section démarches en ligne */
+        .online-procedures {
+            background: var(--light-color);
+            padding: 60px 0;
+        }
+
+        .procedure-card {
+            background: white;
+            padding: 30px;
+            border-radius: 5px;
+            box-shadow: 0 5px 15px rgba(0, 0, 0, 0.1);
+            margin-bottom: 30px;
+        }
+
+        .procedure-card h3 {
+            color: var(--primary-color);
+            margin-bottom: 20px;
+            display: flex;
+            align-items: center;
+        }
+
+        .procedure-card h3 i {
+            margin-right: 10px;
+            color: var(--accent-color);
+        }
+
+        .procedure-steps {
+            margin-left: 20px;
+        }
+
+        .procedure-steps li {
+            margin-bottom: 10px;
+            position: relative;
+            padding-left: 25px;
+        }
+
+        .procedure-steps li:before {
+            content: '→';
+            position: absolute;
+            left: 0;
+            color: var(--accent-color);
+        }
+
+        /* Section documents utiles */
+        .documents-list {
+            margin-top: 40px;
+        }
+
+        .documents-list h3 {
+            margin-bottom: 20px;
+            color: var(--primary-color);
+        }
+
+        .document-item {
+            display: flex;
+            justify-content: space-between;
+            padding: 15px;
+            border-bottom: 1px solid #eee;
+            align-items: center;
+        }
+
+        .document-item:hover {
+            background: var(--light-color);
+        }
+
+        .document-info {
+            display: flex;
+            align-items: center;
+        }
+
+        .document-info i {
+            margin-right: 10px;
+            color: var(--primary-color);
+        }
+
+        .document-download {
+            color: var(--accent-color);
+        }
+
+        /* Footer (identique à la page d'accueil) */
+        footer {
+            background: var(--dark-color);
+            color: white;
+            padding: 60px 0 20px;
+        }
+
+        .footer-container {
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(250px, 1fr));
+            gap: 30px;
+            margin-bottom: 40px;
+        }
+
+        .footer-col h3 {
+            color: var(--accent-color);
+            margin-bottom: 20px;
+            font-size: 1.2rem;
+        }
+
+        .footer-col ul li {
+            margin-bottom: 10px;
+        }
+
+        .footer-col ul li a {
+            color: #ddd;
+            transition: color 0.3s ease;
+        }
+
+        .footer-col ul li a:hover {
+            color: var(--accent-color);
+        }
+
+        .social-links {
+            display: flex;
+            gap: 15px;
+        }
+
+        .social-links a {
+            display: inline-block;
+            width: 40px;
+            height: 40px;
+            background: rgba(255, 255, 255, 0.1);
+            border-radius: 50%;
+            text-align: center;
+            line-height: 40px;
+            color: white;
+            transition: all 0.3s ease;
+        }
+
+        .social-links a:hover {
+            background: var(--accent-color);
+            transform: translateY(-3px);
+        }
+
+        .footer-bottom {
+            text-align: center;
+            padding-top: 20px;
+            border-top: 1px solid rgba(255, 255, 255, 0.1);
+            font-size: 0.9rem;
+        }
+
+        /* Responsive */
+        @media (max-width: 768px) {
+            .header-container {
+                flex-direction: column;
+                text-align: center;
+            }
+
+            .logo {
+                margin-bottom: 15px;
+                justify-content: center;
+            }
+
+            nav ul {
+                margin-top: 15px;
+                flex-direction: column;
+                align-items: center;
+            }
+
+            nav ul li {
+                margin: 5px 0;
+            }
+
+            .page-banner h1 {
+                font-size: 2rem;
+            }
+
+            .services-grid {
+                grid-template-columns: 1fr;
+            }
+        }
+
+        @media (max-width: 480px) {
+            .page-banner {
+                height: 25vh;
+            }
+
+            .page-banner h1 {
+                font-size: 1.8rem;
+            }
+        }
+
+        .modal {
+            display: none;
+            position: fixed;
+            z-index: 1000;
+            left: 0;
+            top: 0;
+            width: 100%;
+            height: 100%;
+            overflow: auto;
+            background-color: rgba(0, 0, 0, 0.4);
+        }
+
+        .modal-content {
+            background-color: #fefefe;
+            margin: 5% auto;
+            padding: 25px;
+            border: 1px solid #888;
+            width: 80%;
+            max-width: 700px;
+            border-radius: 8px;
+            box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1);
+            animation: modalopen 0.3s;
+        }
+
+        @keyframes modalopen {
+            from {
+                opacity: 0;
+                transform: translateY(-50px);
+            }
+
+            to {
+                opacity: 1;
+                transform: translateY(0);
+            }
+        }
+
+        .modal-header {
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+            border-bottom: 1px solid #eee;
+            padding-bottom: 15px;
+            margin-bottom: 20px;
+        }
+
+        .modal-header h2 {
+            color: var(--primary-color);
+            margin: 0;
+            font-size: 1.5rem;
+        }
+
+        .close {
+            color: #aaa;
+            font-size: 28px;
+            font-weight: bold;
+            cursor: pointer;
+        }
+
+        .close:hover {
+            color: #333;
+        }
+
+        /* Styles du formulaire dans la modal */
+        .modal-form .form-group {
+            margin-bottom: 15px;
+        }
+
+        .modal-form .form-group label {
+            display: block;
+            margin-bottom: 5px;
+            font-weight: 500;
+        }
+
+        .modal-form .form-group input,
+        .modal-form .form-group select {
+            width: 100%;
+            padding: 10px;
+            border: 1px solid #ddd;
+            border-radius: 4px;
+            font-size: 14px;
+        }
+
+        .modal-form .form-row {
+            display: flex;
+            gap: 15px;
+            margin-bottom: 15px;
+        }
+
+        .modal-form .form-col {
+            flex: 1;
+        }
+
+        .modal-form .btn {
+            padding: 10px 20px;
+            background-color: var(--primary-color);
+            color: white;
+            border: none;
+            border-radius: 4px;
+            cursor: pointer;
+            font-size: 14px;
+            transition: background-color 0.3s;
+        }
+
+        .modal-form .btn:hover {
+            background-color: var(--secondary-color);
+        }
+
+        .modal-form .btn-secondary {
+            background-color: #6c757d;
+        }
+
+        .modal-form .btn-secondary:hover {
+            background-color: #5a6268;
+        }
+
+        .modal-form .form-footer {
+            display: flex;
+            justify-content: space-between;
+            margin-top: 20px;
+            padding-top: 15px;
+            border-top: 1px solid #eee;
+        }
+
+        /* Responsive */
+        @media (max-width: 768px) {
+            .modal-content {
+                width: 90%;
+                margin: 10% auto;
+            }
+
+            .modal-form .form-row {
+                flex-direction: column;
+                gap: 0;
+            }
+        }
+
+        /* Style pour l'upload de fichier */
+        .file-upload-wrapper {
+            margin-top: 8px;
+        }
+
+        .file-upload-wrapper input[type="file"] {
+            width: 100%;
+            padding: 10px;
+            border: 1px solid #ddd;
+            border-radius: 4px;
+            background-color: #f9f9f9;
+        }
+
+        .file-upload-wrapper input[type="file"]::file-selector-button {
+            padding: 8px 12px;
+            background-color: var(--primary-color);
+            color: white;
+            border: none;
+            border-radius: 4px;
+            cursor: pointer;
+            margin-right: 10px;
+            transition: background-color 0.3s;
+        }
+
+        .file-upload-wrapper input[type="file"]::file-selector-button:hover {
+            background-color: var(--secondary-color);
+        }
+
+        /* Styles spécifiques pour le formulaire d'aide sociale */
+        .checkbox-group {
+            display: flex;
+            flex-direction: column;
+            gap: 10px;
+        }
+
+        .checkbox-option {
+            display: flex;
+            align-items: center;
+        }
+
+        .checkbox-option input[type="checkbox"] {
+            margin-right: 8px;
+        }
+    </style>
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.0.0-beta3/css/all.min.css">
+</head>
+
+<body>
+    <!-- Header -->
+    <header>
+        <div class="container header-container">
+            <div class="logo">
+                <img src="images/logo.jpg" alt="Logo Mairie de Mongo">
+                <div class="logo-text">
+                    <h1>Mairie de Mongo</h1>
+                    <p>Commune de Mongo</p>
+                </div>
+            </div>
+            <a href="index.html" class="btn">Retour</a>
+            <div class="mobile-menu">
+                <i class="fas fa-bars"></i>
+            </div>
+        </div>
+    </header>
+
+    <!-- Bannière de page -->
+    <section class="page-banner">
+        <div class="container">
+            <h1>Services Administratifs</h1>
+            <p>Toutes les informations pour vos démarches administratives</p>
+        </div>
+    </section>
+
+    <!-- Fil d'Ariane -->
+    <div class="breadcrumb">
+        <div class="container">
+            <ul>
+                <li><a href="index.html">Accueil</a></li>
+                <li><a href="services.html">Services administratifs</a></li>
+            </ul>
+        </div>
+    </div>
+
+    <!-- Section principale -->
+    <main class="container section-padding">
+        <div class="services-intro">
+            <h2>Nos services administratifs</h2>
+            <p>La mairie de Mongo met à votre disposition tous les services nécessaires pour vos démarches
+                administratives. Retrouvez ci-dessous l'ensemble de nos services classés par catégorie.</p>
+        </div>
+
+        <!-- Onglets de filtrage -->
+        <div class="services-tabs">
+            <button class="tab-btn active" data-category="all">Tous les services</button>
+            <button class="tab-btn" data-category="etat-civil">État civil</button>
+            <button class="tab-btn" data-category="urbanisme">Urbanisme</button>
+            <button class="tab-btn" data-category="social">Action sociale</button>
+            <!-- <button class="tab-btn" data-category="scolaire">Scolaire</button> -->
+        </div>
+
+        <!-- Grille des services -->
+        <div class="services-grid">
+            <!-- Service 1 -->
+            <div class="service-card" data-category="etat-civil">
+                <div class="service-icon">
+                    <i class="fas fa-user"></i>
+                </div>
+                <div class="service-content">
+                    <h3>Acte de naissance</h3>
+                    <p>Demande d'acte de naissance pour les personnes nées sur la commune de Mongo.</p>
+                    <div class="service-meta">
+                        <span><i class="fas fa-clock"></i> Délai: 5 jours</span>
+                        <span><i class="fas fa-euro-sign"></i> Gratuit</span>
+                    </div>
+                    <a href="#" class="btn" id="openBirthCertificateModal">Demander en ligne</a>
+                </div>
+            </div>
+
+            <!-- Service 2 -->
+            <div class="service-card" data-category="etat-civil">
+                <div class="service-icon">
+                    <i class="fas fa-ring"></i>
+                </div>
+                <div class="service-content">
+                    <h3>Acte de mariage</h3>
+                    <p>Demande d'acte de mariage pour les unions célébrées sur la commune de Mongo.</p>
+                    <div class="service-meta">
+                        <span><i class="fas fa-clock"></i> Délai: 5 jours</span>
+                        <span><i class="fas fa-euro-sign"></i> Gratuit</span>
+                    </div>
+                    <a href="#" class="btn" id="openMarriageModalBtn">Demander en ligne</a>
+                </div>
+            </div>
+
+            <!-- Service 3 -->
+            <div class="service-card" data-category="urbanisme">
+                <div class="service-icon">
+                    <i class="fas fa-home"></i>
+                </div>
+                <div class="service-content">
+                    <h3>Permis de construire</h3>
+                    <p>Dépôt de demande de permis de construire pour vos projets immobiliers.</p>
+                    <div class="service-meta">
+                        <span><i class="fas fa-clock"></i> Délai: 2 mois</span>
+                        <span><i class="fas fa-euro-sign"></i> Variable</span>
+                    </div>
+                    <a href="#" id="openPermitModalBtn" class="btn">Déposer une demande</a>
+                </div>
+            </div>
+
+            <!-- Service 4 -->
+            <div class="service-card" data-category="urbanisme">
+                <div class="service-icon">
+                    <i class="fas fa-tree"></i>
+                </div>
+                <div class="service-content">
+                    <h3>Certificat d'urbanisme</h3>
+                    <p>Demande de certificat d'urbanisme pour connaître les règles applicables à un terrain.</p>
+                    <div class="service-meta">
+                        <span><i class="fas fa-clock"></i> Délai: 1 mois</span>
+                        <span><i class="fas fa-euro-sign"></i> Gratuit</span>
+                    </div>
+                    <a href="#" id="openUrbanismModalBtn" class="btn">Demander en ligne</a>
+                </div>
+            </div>
+
+            <!-- Service 5 -->
+            <div class="service-card" data-category="social">
+                <div class="service-icon">
+                    <i class="fas fa-hand-holding-heart"></i>
+                </div>
+                <div class="service-content">
+                    <h3>Aide sociale</h3>
+                    <p>Demande d'aide sociale pour les habitants de Mongo en situation difficile.</p>
+                    <div class="service-meta">
+                        <span><i class="fas fa-clock"></i> Délai: 15 jours</span>
+                        <span><i class="fas fa-euro-sign"></i> Sous conditions</span>
+                    </div>
+                    <a href="#" id="openSocialModalBtn" class="btn">Faire une demande</a>
+                </div>
+            </div>
+
+        <!-- Section démarches en ligne -->
+        <section class="online-procedures">
+            <h2 class="text-center">Démarches en ligne</h2>
+            <p class="text-center">Effectuez vos démarches directement en ligne pour gagner du temps</p>
+
+            <div class="procedure-card">
+                <h3><i class="fas fa-laptop"></i> Comment effectuer une démarche en ligne ?</h3>
+                <ol class="procedure-steps">
+                    <li>Créez un compte sur notre portail citoyen (ou connectez-vous si vous en avez déjà un)</li>
+                    <li>Sélectionnez la démarche que vous souhaitez effectuer</li>
+                    <li>Remplissez le formulaire en ligne et joignez les documents nécessaires</li>
+                    <li>Validez et payez en ligne si nécessaire</li>
+                    <li>Suivez l'avancement de votre demande dans votre espace personnel</li>
+                </ol>
+                <div class="text-center" style="margin-top: 20px;">
+                    <a href="#" class="btn">Accéder au portail citoyen</a>
+                </div>
+            </div>
+        </section>
+    </main>
+
+    <!-- Modal pour la demande d'acte de naissance -->
+    <div id="birthCertificateModal" class="modal">
+        <div class="modal-content">
+            <div class="modal-header">
+                <h2><i class="fas fa-user"></i> Demande d'acte de naissance</h2>
+                <span class="close">&times;</span>
+            </div>
+
+            <form id="birthCertificateForm" class="modal-form">
+                <!-- Section 1: Informations sur la personne concernée -->
+                <fieldset>
+                    <legend>1. Informations sur la personne concernée</legend>
+
+                    <div class="form-row">
+                        <div class="form-col">
+                            <div class="form-group">
+                                <label for="last-name" class="required">Nom de famille</label>
+                                <input type="text" id="last-name" name="last-name" required>
+                                <div class="form-error" id="last-name-error"></div>
+                            </div>
+                        </div>
+                        <div class="form-col">
+                            <div class="form-group">
+                                <label for="first-name" class="required">Prénom(s)</label>
+                                <input type="text" id="first-name" name="first-name" required>
+                                <div class="form-error" id="first-name-error"></div>
+                            </div>
+                        </div>
+                    </div>
+
+                    <div class="form-row">
+                        <div class="form-col">
+                            <div class="form-group">
+                                <label for="birth-date" class="required">Date de naissance</label>
+                                <input type="date" id="birth-date" name="birth-date" required>
+                                <div class="form-error" id="birth-date-error"></div>
+                            </div>
+                        </div>
+                        <div class="form-col">
+                            <div class="form-group">
+                                <label for="birth-place" class="required">Lieu de naissance</label>
+                                <input type="text" id="birth-place" name="birth-place" value="Mongo" required>
+                                <div class="form-error" id="birth-place-error"></div>
+                            </div>
+                        </div>
+                    </div>
+
+                    <div class="form-group">
+                        <label for="purpose">Sexe</label>
+                        <select id="purpose" name="purpose">
+                            <option value="">-- Sélectionnez un sexe --</option>
+                            <option value="masculin">Masculin</option>
+                            <option value="feminin">Feminin</option>
+
+                        </select>
+                    </div>
+                </fieldset>
+
+                <!-- Section 2: Informations sur les parents -->
+                <fieldset>
+                    <legend>2. Informations sur les parents</legend>
+
+                    <div class="form-row">
+                        <div class="form-col">
+                            <div class="form-group">
+                                <label for="father-name">Nom du père</label>
+                                <input type="text" id="father-name" name="father-name">
+                                <div class="form-help"></div>
+                                <label for="birth-date" class="required">Date de naissance du père</label>
+                                <input type="date" id="birth-date" name="birth-date" required>
+                                <div class="form-error" id="birth-date-error"></div>
+                                <label for="birth-place" class="required">Lieu de naissance</label>
+                                <input type="text" id="birth-place" name="birth-place" value="Mongo" required>
+                                <div class="form-error" id="birth-place-error"></div>
+                                <label for="birth-place" class="required">Profession du père</label>
+                                <input type="text" id="birth-place" name="birth-place" value="" required>
+                                <div class="form-error" id="birth-place-error"></div>
+                            </div>
+                        </div>
+
+                        <div class="form-col">
+                            <div class="form-group">
+                                <label for="mother-name">Nom de la mère</label>
+                                <input type="text" id="mother-name" name="mother-name">
+                                <div class="form-help"></div>
+                                <label for="birth-date" class="required">Date de naissance de la mère</label>
+                                <input type="date" id="birth-date" name="birth-date" required>
+                                <div class="form-error" id="birth-date-error"></div>
+                                <label for="birth-place" class="required">Lieu de naissance</label>
+                                <input type="text" id="birth-place" name="birth-place" value="Mongo" required>
+                                <div class="form-error" id="birth-place-error"></div>
+                                <label for="birth-place" class="required">Profession de la mère</label>
+                                <input type="text" id="birth-place" name="birth-place" value="" required>
+                                <div class="form-error" id="birth-place-error"></div>
+                            </div>
+                        </div>
+                    </div>
+                </fieldset>
+
+                <!-- Section 3: Informations sur le demandeur -->
+                <fieldset>
+                    <legend>3. Vos informations (demandeur)</legend>
+
+                    <div class="form-group">
+                        <label for="purpose">Vous êtes</label>
+                        <select id="purpose" name="purpose">
+                            <option value=""> Sélectionnez une option </option>
+                            <option value="la personne concernée">La personne concernée</option>
+                            <option value="un parent">Un parent</option>
+                            <option value="autre">Autre</option>
+                        </select>
+                    </div>
+
+                    <div class="form-row">
+                        <div class="form-col">
+                            <div class="form-group">
+                                <label for="requester-last-name" class="required">Votre nom</label>
+                                <input type="text" id="requester-last-name" name="requester-last-name" required>
+                                <div class="form-error" id="requester-last-name-error"></div>
+                            </div>
+                        </div>
+                        <div class="form-col">
+                            <div class="form-group">
+                                <label for="requester-first-name" class="required">Votre prénom</label>
+                                <input type="text" id="requester-first-name" name="requester-first-name" required>
+                                <div class="form-error" id="requester-first-name-error"></div>
+                            </div>
+                        </div>
+                    </div>
+
+                    <div class="form-row">
+                        <div class="form-col">
+                            <div class="form-group">
+                                <label for="requester-email" class="required">Email</label>
+                                <input type="email" id="requester-email" name="requester-email" required>
+                                <div class="form-error" id="requester-email-error"></div>
+                            </div>
+                        </div>
+                        <div class="form-col">
+                            <div class="form-group">
+                                <label for="requester-phone">Téléphone</label>
+                                <input type="tel" id="requester-phone" name="requester-phone">
+                                <div class="form-help"></div>
+                            </div>
+                        </div>
+                    </div>
+
+                    <div class="form-group">
+                        <label for="requester-address" class="required">Adresse postale</label>
+                        <textarea id="requester-address" name="requester-address" rows="3" required></textarea>
+                        <div class="form-error" id="requester-address-error"></div>
+                    </div>
+                </fieldset>
+
+                <!-- Section 4: Options de livraison -->
+                <fieldset>
+                    <legend>4. Options de livraison</legend>
+                    <div class="form-group">
+                        <label for="purpose">Mode de réception</label>
+                        <select id="purpose" name="purpose">
+                            <option value="">Sélectionnez une mode</option>
+                            <option value="retrait à la mairie">Retrait à la mairie</option>
+                            <option value="mail">Envoi par courrier</option>
+                        </select>
+                        <div class="form-error" id="requester-address-error"></div>
+                    </div>
+                </fieldset>
+
+                <div class="form-footer">
+                    <button type="button" class="btn btn-secondary" id="modal-cancel">Annuler</button>
+                    <button type="submit" class="btn">Envoyer la demande</button>
+                </div>
+            </form>
+        </div>
+    </div>
+
+    <!-- Modal pour la demande d'acte de marriage -->
+    <div id="marriageCertificateModal" class="modal">
+        <div class="modal-content">
+            <div class="modal-header">
+                <h2><i class="fas fa-ring"></i> Demande d'acte de mariage</h2>
+                <span class="close">&times;</span>
+            </div>
+
+            <form id="marriageCertificateForm" class="modal-form">
+                <!-- Section 1: Informations sur le mariage -->
+                <fieldset>
+                    <legend>1. Informations sur le mariage</legend>
+
+                    <div class="form-group">
+                        <label for="marriage-date" class="required">Date du mariage</label>
+                        <input type="date" id="marriage-date" name="marriage-date" required>
+                        <div class="form-error" id="marriage-date-error"></div>
+                    </div>
+
+                    <div class="form-group">
+                        <label for="marriage-place" class="required">Lieu du mariage</label>
+                        <input type="text" id="marriage-place" name="marriage-place" value="Mongo" required>
+                        <div class="form-error" id="marriage-place-error"></div>
+                    </div>
+                </fieldset>
+
+                <!-- Section 2: Informations sur les époux -->
+                <fieldset>
+                    <legend>2. Informations sur les époux</legend>
+
+                    <div class="form-row">
+                        <div class="form-col">
+                            <h4>Époux</h4>
+                            <div class="form-group">
+                                <label for="husband-last-name" class="required">Nom de famille</label>
+                                <input type="text" id="husband-last-name" name="husband-last-name" required>
+                                <div class="form-error" id="husband-last-name-error"></div>
+                            </div>
+
+                            <div class="form-group">
+                                <label for="husband-first-name" class="required">Prénom(s)</label>
+                                <input type="text" id="husband-first-name" name="husband-first-name" required>
+                                <div class="form-error" id="husband-first-name-error"></div>
+                            </div>
+
+                            <div class="form-group">
+                                <label for="husband-birth-date" class="required">Date de naissance</label>
+                                <input type="date" id="husband-birth-date" name="husband-birth-date" required>
+                                <div class="form-error" id="husband-birth-date-error"></div>
+                            </div>
+
+                            <div class="form-group">
+                                <label for="husband-birth-place" class="required">Lieu de naissance</label>
+                                <input type="text" id="husband-birth-place" name="husband-birth-place" required>
+                                <div class="form-error" id="husband-birth-place-error"></div>
+                            </div>
+                        </div>
+
+                        <div class="form-col">
+                            <h4>Épouse</h4>
+                            <div class="form-group">
+                                <label for="wife-last-name" class="required">Nom de famille</label>
+                                <input type="text" id="wife-last-name" name="wife-last-name" required>
+                                <div class="form-error" id="wife-last-name-error"></div>
+                            </div>
+
+                            <div class="form-group">
+                                <label for="wife-first-name" class="required">Prénom(s)</label>
+                                <input type="text" id="wife-first-name" name="wife-first-name" required>
+                                <div class="form-error" id="wife-first-name-error"></div>
+                            </div>
+
+                            <div class="form-group">
+                                <label for="wife-birth-date" class="required">Date de naissance</label>
+                                <input type="date" id="wife-birth-date" name="wife-birth-date" required>
+                                <div class="form-error" id="wife-birth-date-error"></div>
+                            </div>
+
+                            <div class="form-group">
+                                <label for="wife-birth-place" class="required">Lieu de naissance</label>
+                                <input type="text" id="wife-birth-place" name="wife-birth-place" required>
+                                <div class="form-error" id="wife-birth-place-error"></div>
+                            </div>
+                        </div>
+                    </div>
+                </fieldset>
+
+                <!-- Section 3: Informations sur les parents -->
+                <fieldset>
+                    <legend>3. Informations sur les parents (facultatif)</legend>
+
+                    <div class="form-row">
+                        <div class="form-col">
+                            <h5>Parents de l'époux</h5>
+                            <div class="form-group">
+                                <label for="husband-father-name">Nom du père</label>
+                                <input type="text" id="husband-father-name" name="husband-father-name">
+                            </div>
+
+                            <div class="form-group">
+                                <label for="husband-mother-name">Nom de la mère</label>
+                                <input type="text" id="husband-mother-name" name="husband-mother-name">
+                            </div>
+                        </div>
+
+                        <div class="form-col">
+                            <h5>Parents de l'épouse</h5>
+                            <div class="form-group">
+                                <label for="wife-father-name">Nom du père</label>
+                                <input type="text" id="wife-father-name" name="wife-father-name">
+                            </div>
+
+                            <div class="form-group">
+                                <label for="wife-mother-name">Nom de la mère</label>
+                                <input type="text" id="wife-mother-name" name="wife-mother-name">
+                            </div>
+                        </div>
+                    </div>
+                </fieldset>
+
+                <!-- Section 4: Informations sur le demandeur -->
+                <fieldset>
+                    <legend>4. Vos informations (demandeur)</legend>
+
+                    <div class="form-group">
+                        <label for="requester-relation">Vous êtes</label>
+                        <select id="requester-relation" name="requester-relation">
+                            <option value="">-- Sélectionnez --</option>
+                            <option value="epoux">Un des époux</option>
+                            <option value="enfant">Enfant des époux</option>
+                            <option value="parent">Parent des époux</option>
+                            <option value="autre">Autre</option>
+                        </select>
+                    </div>
+
+                    <div class="form-row">
+                        <div class="form-col">
+                            <div class="form-group">
+                                <label for="requester-last-name" class="required">Votre nom</label>
+                                <input type="text" id="requester-last-name" name="requester-last-name" required>
+                                <div class="form-error" id="requester-last-name-error"></div>
+                            </div>
+                        </div>
+                        <div class="form-col">
+                            <div class="form-group">
+                                <label for="requester-first-name" class="required">Votre prénom</label>
+                                <input type="text" id="requester-first-name" name="requester-first-name" required>
+                                <div class="form-error" id="requester-first-name-error"></div>
+                            </div>
+                        </div>
+                    </div>
+
+                    <div class="form-row">
+                        <div class="form-col">
+                            <div class="form-group">
+                                <label for="requester-email" class="required">Email</label>
+                                <input type="email" id="requester-email" name="requester-email" required>
+                                <div class="form-error" id="requester-email-error"></div>
+                            </div>
+                        </div>
+                        <div class="form-col">
+                            <div class="form-group">
+                                <label for="requester-phone">Téléphone</label>
+                                <input type="tel" id="requester-phone" name="requester-phone">
+                                <div class="form-help"></div>
+                            </div>
+                        </div>
+                    </div>
+
+                    <div class="form-group">
+                        <label for="requester-address" class="required">Adresse postale</label>
+                        <textarea id="requester-address" name="requester-address" rows="3" required></textarea>
+                        <div class="form-error" id="requester-address-error"></div>
+                    </div>
+
+                    <!--  la pièce d'identité -->
+                    <div class="form-group">
+                        <label for="id-document" class="required">Pièce d'identité</label>
+                        <div class="file-upload-wrapper">
+                            <input type="file" id="id-document" name="id-document" accept=".pdf,.jpg,.jpeg,.png"
+                                required>
+                            <div class="form-help">Formats acceptés : PDF, JPG, PNG (max 5Mo)</div>
+                            <div class="form-error" id="id-document-error"></div>
+                        </div>
+                    </div>
+                </fieldset>
+
+                <!-- Section 5: Options de livraison -->
+                <fieldset>
+                    <legend>5. Options de livraison</legend>
+                    <div class="form-group">
+                        <label for="delivery-method">Mode de réception</label>
+                        <select id="delivery-method" name="delivery-method">
+                            <option value="">-- Sélectionnez --</option>
+                            <option value="retrait">Retrait à la mairie</option>
+                            <option value="courrier">Envoi par courrier</option>
+                        </select>
+                    </div>
+                </fieldset>
+
+                <div class="form-footer">
+                    <button type="button" class="btn btn-secondary" id="marriage-modal-cancel">Annuler</button>
+                    <button type="submit" class="btn">Envoyer la demande</button>
+                </div>
+            </form>
+        </div>
+    </div>
+
+    <!-- Modal pour la demande de permis de construire -->
+    <div id="buildingPermitModal" class="modal">
+        <div class="modal-content">
+            <div class="modal-header">
+                <h2><i class="fas fa-home"></i> Demande de permis de construire</h2>
+                <span class="close">&times;</span>
+            </div>
+
+            <form id="buildingPermitForm" class="modal-form">
+                <!-- Section 1: Informations sur le demandeur -->
+                <fieldset>
+                    <legend>1. Informations sur le demandeur</legend>
+
+                    <div class="form-row">
+                        <div class="form-col">
+                            <div class="form-group">
+                                <label for="applicant-name" class="required">Nom complet</label>
+                                <input type="text" id="applicant-name" name="applicant-name" required>
+                                <div class="form-error" id="applicant-name-error"></div>
+                            </div>
+                        </div>
+                        <div class="form-col">
+                            <div class="form-group">
+                                <label for="applicant-identity" class="required">N° pièce d'identité</label>
+                                <input type="text" id="applicant-identity" name="applicant-identity" required>
+                                <div class="form-error" id="applicant-identity-error"></div>
+                            </div>
+                        </div>
+                    </div>
+
+                    <div class="form-row">
+                        <div class="form-col">
+                            <div class="form-group">
+                                <label for="applicant-address" class="required">Adresse</label>
+                                <textarea id="applicant-address" name="applicant-address" rows="2" required></textarea>
+                                <div class="form-error" id="applicant-address-error"></div>
+                            </div>
+                        </div>
+                        <div class="form-col">
+                            <div class="form-group">
+                                <label for="applicant-phone" class="required">Téléphone</label>
+                                <input type="tel" id="applicant-phone" name="applicant-phone" required>
+                                <div class="form-error" id="applicant-phone-error"></div>
+                            </div>
+                        </div>
+                    </div>
+
+                    <div class="form-group">
+                        <label for="applicant-email">Email</label>
+                        <input type="email" id="applicant-email" name="applicant-email">
+                        <div class="form-help">Pour recevoir les notifications</div>
+                    </div>
+                </fieldset>
+
+                <!-- Section 2: Informations sur le terrain -->
+                <fieldset>
+                    <legend>2. Informations sur le terrain</legend>
+
+                    <div class="form-row">
+                        <div class="form-col">
+                            <div class="form-group">
+                                <label for="plot-location" class="required">Localisation exacte</label>
+                                <textarea id="plot-location" name="plot-location" rows="2" required></textarea>
+                                <div class="form-error" id="plot-location-error"></div>
+                            </div>
+                        </div>
+                        <div class="form-col">
+                            <div class="form-group">
+                                <label for="plot-area" class="required">Superficie (m²)</label>
+                                <input type="number" id="plot-area" name="plot-area" required>
+                                <div class="form-error" id="plot-area-error"></div>
+                            </div>
+                        </div>
+                    </div>
+
+                    <div class="form-group">
+                        <label for="plot-ownership" class="required">Nature du titre de propriété</label>
+                        <select id="plot-ownership" name="plot-ownership" required>
+                            <option value="">-- Sélectionnez --</option>
+                            <option value="title-deed">Titre foncier</option>
+                            <option value="lease">Bail</option>
+                            <option value="inheritance">Héritage</option>
+                            <option value="other">Autre</option>
+                        </select>
+                    </div>
+
+                    <div class="form-group">
+                        <label for="plot-documents" class="required">Plan de situation (PDF/JPG/PNG)</label>
+                        <input type="file" id="plot-documents" name="plot-documents" accept=".pdf,.jpg,.jpeg,.png"
+                            required>
+                        <div class="form-help">Document montrant l'emplacement du terrain</div>
+                        <div class="form-error" id="plot-documents-error"></div>
+                    </div>
+                </fieldset>
+
+                <!-- Section 3: Caractéristiques du projet -->
+                <fieldset>
+                    <legend>3. Caractéristiques du projet</legend>
+
+                    <div class="form-row">
+                        <div class="form-col">
+                            <div class="form-group">
+                                <label for="project-type" class="required">Type de construction</label>
+                                <select id="project-type" name="project-type" required>
+                                    <option value="">-- Sélectionnez --</option>
+                                    <option value="house">Maison d'habitation</option>
+                                    <option value="apartment">Immeuble</option>
+                                    <option value="commercial">Bâtiment commercial</option>
+                                    <option value="extension">Extension</option>
+                                    <option value="other">Autre</option>
+                                </select>
+                            </div>
+                        </div>
+                        <div class="form-col">
+                            <div class="form-group">
+                                <label for="project-area" class="required">Surface à construire (m²)</label>
+                                <input type="number" id="project-area" name="project-area" required>
+                                <div class="form-error" id="project-area-error"></div>
+                            </div>
+                        </div>
+                    </div>
+
+                    <div class="form-row">
+                        <div class="form-col">
+                            <div class="form-group">
+                                <label for="project-floors" class="required">Nombre de niveaux</label>
+                                <input type="number" id="project-floors" name="project-floors" min="1" required>
+                                <div class="form-error" id="project-floors-error"></div>
+                            </div>
+                        </div>
+                        <div class="form-col">
+                            <div class="form-group">
+                                <label for="project-height" class="required">Hauteur totale (m)</label>
+                                <input type="number" id="project-height" name="project-height" step="0.1" required>
+                                <div class="form-error" id="project-height-error"></div>
+                            </div>
+                        </div>
+                    </div>
+
+                    <div class="form-group">
+                        <label for="project-materials" class="required">Matériaux principaux</label>
+                        <input type="text" id="project-materials" name="project-materials" required>
+                        <div class="form-error" id="project-materials-error"></div>
+                    </div>
+
+                    <div class="form-group">
+                        <label for="project-description">Description du projet</label>
+                        <textarea id="project-description" name="project-description" rows="3"></textarea>
+                    </div>
+                </fieldset>
+
+                <!-- Section 4: Documents à joindre -->
+                <fieldset>
+                    <legend>4. Documents à joindre</legend>
+
+                    <div class="form-group">
+                        <label for="project-plans" class="required">Plans de construction (PDF)</label>
+                        <input type="file" id="project-plans" name="project-plans" accept=".pdf" required>
+                        <div class="form-help">Plans architecturaux détaillés</div>
+                        <div class="form-error" id="project-plans-error"></div>
+                    </div>
+
+                    <div class="form-group">
+                        <label for="project-photos">Photos du terrain (JPG/PNG)</label>
+                        <input type="file" id="project-photos" name="project-photos" accept=".jpg,.jpeg,.png" multiple>
+                        <div class="form-help">Photos montrant l'état actuel du terrain</div>
+                    </div>
+
+                    <div class="form-group">
+                        <label for="other-documents">Autres documents (facultatifs)</label>
+                        <input type="file" id="other-documents" name="other-documents" multiple>
+                        <div class="form-help">Tout document utile à l'instruction du dossier</div>
+                    </div>
+                </fieldset>
+
+                <div class="form-footer">
+                    <button type="button" class="btn btn-secondary" id="permit-modal-cancel">Annuler</button>
+                    <button type="submit" class="btn">Soumettre la demande</button>
+                </div>
+            </form>
+        </div>
+    </div>
+
+    <!-- Modal pour la demande de certificat d'urbanisme -->
+    <div id="urbanismCertificateModal" class="modal">
+        <div class="modal-content">
+            <div class="modal-header">
+                <h2><i class="fas fa-city"></i> Demande de certificat d'urbanisme</h2>
+                <span class="close">&times;</span>
+            </div>
+
+            <form id="urbanismCertificateForm" class="modal-form">
+                <!-- Section 1: Informations sur le demandeur -->
+                <fieldset>
+                    <legend>1. Informations sur le demandeur</legend>
+
+                    <div class="form-row">
+                        <div class="form-col">
+                            <div class="form-group">
+                                <label for="cu-last-name" class="required">Nom</label>
+                                <input type="text" id="cu-last-name" name="cu-last-name" required>
+                                <div class="form-error" id="cu-last-name-error"></div>
+                            </div>
+                        </div>
+                        <div class="form-col">
+                            <div class="form-group">
+                                <label for="cu-first-name" class="required">Prénom(s)</label>
+                                <input type="text" id="cu-first-name" name="cu-first-name" required>
+                                <div class="form-error" id="cu-first-name-error"></div>
+                            </div>
+                        </div>
+                    </div>
+
+                    <div class="form-row">
+                        <div class="form-col">
+                            <div class="form-group">
+                                <label for="cu-address" class="required">Adresse</label>
+                                <textarea id="cu-address" name="cu-address" rows="2" required></textarea>
+                                <div class="form-error" id="cu-address-error"></div>
+                            </div>
+                        </div>
+                        <div class="form-col">
+                            <div class="form-group">
+                                <label for="cu-phone" class="required">Téléphone</label>
+                                <input type="tel" id="cu-phone" name="cu-phone" required>
+                                <div class="form-error" id="cu-phone-error"></div>
+                            </div>
+                        </div>
+                    </div>
+
+                    <div class="form-group">
+                        <label for="cu-email">Email</label>
+                        <input type="email" id="cu-email" name="cu-email">
+                        <div class="form-help">Pour recevoir les notifications</div>
+                    </div>
+
+                    <div class="form-group">
+                        <label for="cu-identity">Pièce d'identité (facultatif)</label>
+                        <input type="file" id="cu-identity" name="cu-identity" accept=".pdf,.jpg,.jpeg,.png">
+                        <div class="form-help">Format PDF, JPG ou PNG (max 5Mo)</div>
+                    </div>
+                </fieldset>
+
+                <!-- Section 2: Informations sur le terrain -->
+                <fieldset>
+                    <legend>2. Informations sur le terrain</legend>
+
+                    <div class="form-row">
+                        <div class="form-col">
+                            <div class="form-group">
+                                <label for="cu-plot-address" class="required">Adresse du terrain</label>
+                                <textarea id="cu-plot-address" name="cu-plot-address" rows="2" required></textarea>
+                                <div class="form-error" id="cu-plot-address-error"></div>
+                            </div>
+                        </div>
+                        <div class="form-col">
+                            <div class="form-group">
+                                <label for="cu-plot-area" class="required">Superficie (m²)</label>
+                                <input type="number" id="cu-plot-area" name="cu-plot-area" required>
+                                <div class="form-error" id="cu-plot-area-error"></div>
+                            </div>
+                        </div>
+                    </div>
+
+                    <div class="form-group">
+                        <label for="cu-plot-ownership" class="required">Titre de propriété</label>
+                        <select id="cu-plot-ownership" name="cu-plot-ownership" required>
+                            <option value="">-- Sélectionnez --</option>
+                            <option value="owner">Propriétaire</option>
+                            <option value="tenant">Locataire</option>
+                            <option value="buyer">Acquéreur</option>
+                            <option value="representative">Représentant</option>
+                        </select>
+                    </div>
+
+                    <div class="form-group">
+                        <label for="cu-plot-documents">Plan de situation (facultatif)</label>
+                        <input type="file" id="cu-plot-documents" name="cu-plot-documents"
+                            accept=".pdf,.jpg,.jpeg,.png">
+                        <div class="form-help">Document montrant l'emplacement du terrain</div>
+                    </div>
+                </fieldset>
+
+                <!-- Section 3: Nature de la demande -->
+                <fieldset>
+                    <legend>3. Nature de la demande</legend>
+
+                    <div class="form-group">
+                        <label class="required">Type de certificat</label>
+                        <div class="radio-group">
+                            <div class="radio-option">
+                                <input type="radio" id="cu-type-info" name="cu-certificate-type" value="informative"
+                                    required checked>
+                                <label for="cu-type-info">Certificat d'urbanisme informatif</label>
+                            </div>
+                            <div class="radio-option">
+                                <input type="radio" id="cu-type-op" name="cu-certificate-type" value="operational">
+                                <label for="cu-type-op">Certificat d'urbanisme opérationnel</label>
+                            </div>
+                        </div>
+                    </div>
+
+                    <div class="form-group">
+                        <label for="cu-project-description">Description du projet (si connu)</label>
+                        <textarea id="cu-project-description" name="cu-project-description" rows="3"></textarea>
+                        <div class="form-help">À remplir pour un certificat opérationnel</div>
+                    </div>
+                </fieldset>
+
+                <!-- Section 4: Documents complémentaires -->
+                <fieldset>
+                    <legend>4. Documents complémentaires</legend>
+
+                    <div class="form-group">
+                        <label for="cu-title-deed">Titre de propriété (facultatif)</label>
+                        <input type="file" id="cu-title-deed" name="cu-title-deed" accept=".pdf,.jpg,.jpeg,.png">
+                        <div class="form-help">Copie du titre de propriété</div>
+                    </div>
+
+                    <div class="form-group">
+                        <label for="cu-additional-docs">Autres documents (facultatifs)</label>
+                        <input type="file" id="cu-additional-docs" name="cu-additional-docs" multiple>
+                        <div class="form-help">Tout document utile à l'instruction du dossier</div>
+                    </div>
+                </fieldset>
+
+                <div class="form-footer">
+                    <button type="button" class="btn btn-secondary" id="cu-modal-cancel">Annuler</button>
+                    <button type="submit" class="btn">Envoyer la demande</button>
+                </div>
+            </form>
+        </div>
+    </div>
+
+    <!-- Modal pour la demande d'aide social -->
+    <div id="socialHelpModal" class="modal">
+        <div class="modal-content">
+            <div class="modal-header">
+                <h2><i class="fas fa-hands-helping"></i> Demande d'aide sociale</h2>
+                <span class="close">&times;</span>
+            </div>
+
+            <form id="socialHelpForm" class="modal-form">
+                <!-- Section 1: Informations personnelles -->
+                <fieldset>
+                    <legend>1. Informations personnelles</legend>
+
+                    <div class="form-row">
+                        <div class="form-col">
+                            <div class="form-group">
+                                <label for="sh-last-name" class="required">Nom de famille</label>
+                                <input type="text" id="sh-last-name" name="sh-last-name" required>
+                                <div class="form-error" id="sh-last-name-error"></div>
+                            </div>
+                        </div>
+                        <div class="form-col">
+                            <div class="form-group">
+                                <label for="sh-first-name" class="required">Prénom(s)</label>
+                                <input type="text" id="sh-first-name" name="sh-first-name" required>
+                                <div class="form-error" id="sh-first-name-error"></div>
+                            </div>
+                        </div>
+                    </div>
+
+                    <div class="form-row">
+                        <div class="form-col">
+                            <div class="form-group">
+                                <label for="sh-birth-date" class="required">Date de naissance</label>
+                                <input type="date" id="sh-birth-date" name="sh-birth-date" required>
+                                <div class="form-error" id="sh-birth-date-error"></div>
+                            </div>
+                        </div>
+                        <div class="form-col">
+                            <div class="form-group">
+                                <label for="sh-birth-place" class="required">Lieu de naissance</label>
+                                <input type="text" id="sh-birth-place" name="sh-birth-place" value="Mongo" required>
+                                <div class="form-error" id="sh-birth-place-error"></div>
+                            </div>
+                        </div>
+                    </div>
+
+                    <div class="form-row">
+                        <div class="form-col">
+                            <div class="form-group">
+                                <label for="sh-cin" class="required">Numéro CIN</label>
+                                <input type="text" id="sh-cin" name="sh-cin" required>
+                                <div class="form-error" id="sh-cin-error"></div>
+                            </div>
+                        </div>
+                        <div class="form-col">
+                            <div class="form-group">
+                                <label for="sh-family-situation" class="required">Situation familiale</label>
+                                <select id="sh-family-situation" name="sh-family-situation" required>
+                                    <option value="">-- Sélectionnez --</option>
+                                    <option value="single">Célibataire</option>
+                                    <option value="married">Marié(e)</option>
+                                    <option value="divorced">Divorcé(e)</option>
+                                    <option value="widowed">Veuf/Veuve</option>
+                                </select>
+                            </div>
+                        </div>
+                    </div>
+                </fieldset>
+
+                <!-- Section 2: Situation économique -->
+                <fieldset>
+                    <legend>2. Situation économique</legend>
+
+                    <div class="form-group">
+                        <label for="sh-address" class="required">Adresse complète</label>
+                        <textarea id="sh-address" name="sh-address" rows="2" required></textarea>
+                        <div class="form-error" id="sh-address-error"></div>
+                    </div>
+
+                    <div class="form-row">
+                        <div class="form-col">
+                            <div class="form-group">
+                                <label for="sh-phone" class="required">Téléphone</label>
+                                <input type="tel" id="sh-phone" name="sh-phone" required>
+                                <div class="form-error" id="sh-phone-error"></div>
+                            </div>
+                        </div>
+                        <div class="form-col">
+                            <div class="form-group">
+                                <label for="sh-email">Email</label>
+                                <input type="email" id="sh-email" name="sh-email">
+                            </div>
+                        </div>
+                    </div>
+
+                    <div class="form-group">
+                        <label for="sh-occupation" class="required">Profession/Situation</label>
+                        <select id="sh-occupation" name="sh-occupation" required>
+                            <option value="">-- Sélectionnez --</option>
+                            <option value="employed">Employé(e)</option>
+                            <option value="unemployed">Sans emploi</option>
+                            <option value="student">Étudiant(e)</option>
+                            <option value="retired">Retraité(e)</option>
+                            <option value="disabled">Handicapé(e)</option>
+                        </select>
+                    </div>
+
+                    <div class="form-group">
+                        <label for="sh-income" class="required">Revenu mensuel (FCFA)</label>
+                        <input type="number" id="sh-income" name="sh-income" required>
+                        <div class="form-error" id="sh-income-error"></div>
+                    </div>
+
+                    <div class="form-group">
+                        <label for="sh-household" class="required">Nombre de personnes au foyer</label>
+                        <input type="number" id="sh-household" name="sh-household" min="1" required>
+                        <div class="form-error" id="sh-household-error"></div>
+                    </div>
+                </fieldset>
+
+                <!-- Section 3: Type d'aide demandée -->
+                <fieldset>
+                    <legend>3. Type d'aide demandée</legend>
+
+                    <div class="form-group">
+                        <label class="required">Nature de l'aide</label>
+                        <div class="checkbox-group">
+                            <div class="checkbox-option">
+                                <input type="checkbox" id="sh-help-food" name="sh-help-type" value="food">
+                                <label for="sh-help-food">Aide alimentaire</label>
+                            </div>
+                            <div class="checkbox-option">
+                                <input type="checkbox" id="sh-help-housing" name="sh-help-type" value="housing">
+                                <label for="sh-help-housing">Aide au logement</label>
+                            </div>
+                            <div class="checkbox-option">
+                                <input type="checkbox" id="sh-help-medical" name="sh-help-type" value="medical">
+                                <label for="sh-help-medical">Aide médicale</label>
+                            </div>
+                            <div class="checkbox-option">
+                                <input type="checkbox" id="sh-help-school" name="sh-help-type" value="school">
+                                <label for="sh-help-school">Aide scolaire</label>
+                            </div>
+                            <div class="checkbox-option">
+                                <input type="checkbox" id="sh-help-other" name="sh-help-type" value="other">
+                                <label for="sh-help-other">Autre (précisez)</label>
+                                <input type="text" id="sh-help-other-detail" name="sh-help-other-detail"
+                                    style="margin-left: 10px; display: none;">
+                            </div>
+                        </div>
+                    </div>
+
+                    <div class="form-group">
+                        <label for="sh-help-description" class="required">Description de votre situation</label>
+                        <textarea id="sh-help-description" name="sh-help-description" rows="4" required></textarea>
+                        <div class="form-error" id="sh-help-description-error"></div>
+                    </div>
+                </fieldset>
+
+                <!-- Section 4: Documents à fournir -->
+                <fieldset>
+                    <legend>4. Documents à fournir</legend>
+
+                    <div class="form-group">
+                        <label for="sh-id-document" class="required">Copie CIN</label>
+                        <input type="file" id="sh-id-document" name="sh-id-document" accept=".pdf,.jpg,.jpeg,.png"
+                            required>
+                        <div class="form-error" id="sh-id-document-error"></div>
+                    </div>
+
+                    <div class="form-group">
+                        <label for="sh-income-proof">Justificatif de revenus</label>
+                        <input type="file" id="sh-income-proof" name="sh-income-proof" accept=".pdf,.jpg,.jpeg,.png">
+                        <div class="form-help">Bulletins de salaire, attestation de chômage, etc.</div>
+                    </div>
+
+                    <div class="form-group">
+                        <label for="sh-additional-docs">Autres documents</label>
+                        <input type="file" id="sh-additional-docs" name="sh-additional-docs" multiple>
+                        <div class="form-help">Tout document justifiant votre demande</div>
+                    </div>
+                </fieldset>
+
+                <div class="form-footer">
+                    <button type="button" class="btn btn-secondary" id="sh-modal-cancel">Annuler</button>
+                    <button type="submit" class="btn">Envoyer la demande</button>
+                </div>
+            </form>
+        </div>
+    </div>
+
+    <!-- Footer -->
+    <footer>
+        <div class="container">
+            <div class="footer-container">
+                <div class="footer-col">
+                    <h3>Mairie de Mongo</h3>
+                    <p>Commune de Mongo</p>
+                    <p>Secteur 5, sur le grand Axe Mongo-Ati, Mongo, TChad</p>
+                    <p>Tél: 99 00 86 83</p>
+                    <p>
+                        <br>
+                        Email: communedemongo@gmail.com
+                    </p>
+                </div>
+                <div class="footer-col">
+                    <h3>Horaires</h3>
+                    <ul>
+                        <li>Lundi - Jeudi : 8h-12h / 14h-17h</li>
+                        <li>Vendredi : 8h-12h </li>
+                        <li>Samedi - Dimanche : Fermé</li>
+                    </ul>
+                </div>
+                <div class="footer-col">
+                    <h3>Suivez-nous</h3>
+                    <div class="social-links">
+                        <a href="https://www.facebook.com/communedemongoofficiel/about" target="_blank"><i
+                                class="fab fa-facebook-f"></i></a>
+                        <!-- <a href="#"><i class="fab fa-twitter"></i></a> -->
+                        <a href="#"><i class="fab fa-instagram"></i></a>
+                        <!-- <a href="#"><i class="fab fa-youtube"></i></a> -->
+                    </div>
+                </div>
+            </div>
+            <div class="footer-bottom">
+                <p>&copy; 2023 Mairie de Mongo - Tous droits réservés</p>
+            </div>
+        </div>
+    </footer>
+
+    <!-- Scripts -->
+
+    <script>
+        // Mobile Menu Toggle
+        document.querySelector('.mobile-menu').addEventListener('click', function () {
+            document.querySelector('nav ul').classList.toggle('show');
+        });
+
+        // Filtrage des services
+        const tabBtns = document.querySelectorAll('.tab-btn');
+        const serviceCards = document.querySelectorAll('.service-card');
+
+        tabBtns.forEach(btn => {
+            btn.addEventListener('click', function () {
+                // Retirer la classe active de tous les boutons
+                tabBtns.forEach(b => b.classList.remove('active'));
+                // Ajouter la classe active au bouton cliqué
+                this.classList.add('active');
+
+                const category = this.getAttribute('data-category');
+
+                // Filtrer les cartes de service
+                serviceCards.forEach(card => {
+                    if (category === 'all' || card.getAttribute('data-category') === category) {
+                        card.style.display = 'block';
+                    } else {
+                        card.style.display = 'none';
+                    }
+                });
+            });
+        });
+
+        // Animation au défilement
+        const observer = new IntersectionObserver((entries) => {
+            entries.forEach(entry => {
+                if (entry.isIntersecting) {
+                    entry.target.classList.add('animate');
+                }
+            });
+        }, {
+            threshold: 0.1
+        });
+
+        document.querySelectorAll('.service-card, .procedure-card').forEach(card => {
+            observer.observe(card);
+        });
+
+        // Current Year for Footer
+        document.querySelector('.footer-bottom p').innerHTML = `&copy; ${new Date().getFullYear()} Mairie de Mongo - Tous droits réservés`;
+
+        // Gérer la modal
+        document.addEventListener('DOMContentLoaded', function () {
+            // Récupération des éléments de la modal
+            const modal = document.getElementById("birthCertificateModal");
+            const openBtn = document.getElementById("openBirthCertificateModal");
+            const closeBtn = document.getElementsByClassName("close")[0];
+            const cancelBtn = document.getElementById("modal-cancel");
+
+            // Ouverture de la modal
+            openBtn.onclick = function () {
+                modal.style.display = "block";
+            }
+
+            // Fermeture de la modal
+            closeBtn.onclick = function () {
+                modal.style.display = "none";
+            }
+
+            cancelBtn.onclick = function () {
+                modal.style.display = "none";
+            }
+
+            // Fermeture quand on clique en dehors de la modal
+            window.onclick = function (event) {
+                if (event.target == modal) {
+                    modal.style.display = "none";
+                }
+            }
+
+            // Gestion de la soumission du formulaire
+            document.getElementById("birthCertificateForm").onsubmit = function (e) {
+                e.preventDefault();
+
+                // Validation simple
+                let isValid = true;
+                const requiredFields = this.querySelectorAll('[required]');
+
+                requiredFields.forEach(field => {
+                    if (!field.value) {
+                        field.style.borderColor = 'var(--error-color)';
+                        isValid = false;
+                    } else {
+                        field.style.borderColor = '#ddd';
+                    }
+                });
+
+                // Validation spécifique pour l'email
+                const email = document.getElementById("modal-email");
+                const emailRegex = /^[^\s@]+@[^\s@]+\.[^\s@]+$/;
+                if (!emailRegex.test(email.value)) {
+                    email.style.borderColor = 'var(--error-color)';
+                    isValid = false;
+                }
+
+                if (isValid) {
+                    // Ici vous pouvez ajouter l'envoi des données
+                    alert("Votre demande a été envoyée avec succès.");
+                    modal.style.display = "none";
+                    this.reset();
+                } else {
+                    alert("Veuillez remplir tous les champs obligatoires correctement.");
+                }
+            }
+        });
+
+
+        // Script pour gérer la modal d'acte de mariage
+        document.addEventListener('DOMContentLoaded', function () {
+            const marriageModal = document.getElementById("marriageCertificateModal");
+            const openMarriageModalBtn = document.getElementById("openMarriageModalBtn"); // À créer dans votre HTML
+            const closeMarriageModal = marriageModal.getElementsByClassName("close")[0];
+            const cancelMarriageModal = document.getElementById("marriage-modal-cancel");
+            const idDocument = document.getElementById("id-document");
+            const maxFileSize = 5 * 1024 * 1024; // 5MB
+
+            // Ouvrir la modal
+            openMarriageModalBtn.onclick = function () {
+                marriageModal.style.display = "block";
+            }
+
+            // Fermer la modal
+            closeMarriageModal.onclick = function () {
+                marriageModal.style.display = "none";
+            }
+
+            cancelMarriageModal.onclick = function () {
+                marriageModal.style.display = "none";
+            }
+
+            // Fermer quand on clique en dehors
+            window.onclick = function (event) {
+                if (event.target == marriageModal) {
+                    marriageModal.style.display = "none";
+                }
+            }
+
+            // Validation du formulaire
+            document.getElementById("marriageCertificateForm").onsubmit = function (e) {
+                e.preventDefault();
+
+                // Validation simple
+                let isValid = true;
+                const requiredFields = this.querySelectorAll('[required]');
+
+                requiredFields.forEach(field => {
+                    if (!field.value) {
+                        field.style.borderColor = 'var(--error-color)';
+                        isValid = false;
+                    } else {
+                        field.style.borderColor = '#ddd';
+                    }
+                });
+
+                // Validation spécifique pour l'email
+                const email = document.getElementById("requester-email");
+                const emailRegex = /^[^\s@]+@[^\s@]+\.[^\s@]+$/;
+                if (!emailRegex.test(email.value)) {
+                    email.style.borderColor = 'var(--error-color)';
+                    isValid = false;
+                }
+
+                if (isValid) {
+                    alert("Votre demande d'acte de mariage a été envoyée avec succès.");
+                    marriageModal.style.display = "none";
+                    this.reset();
+                } else {
+                    alert("Veuillez remplir tous les champs obligatoires correctement.");
+                }
+            }
+
+            // Validation de la pièce d'identité
+            // Validation du fichier
+            if (idDocument.files.length === 0) {
+                idDocument.style.borderColor = 'var(--error-color)';
+                document.getElementById("id-document-error").textContent = "Veuillez joindre une pièce d'identité";
+                isValid = false;
+            } else {
+                const file = idDocument.files[0];
+                const validTypes = ['application/pdf', 'image/jpeg', 'image/png'];
+
+                if (!validTypes.includes(file.type)) {
+                    idDocument.style.borderColor = 'var(--error-color)';
+                    document.getElementById("id-document-error").textContent = "Format de fichier non supporté";
+                    isValid = false;
+                } else if (file.size > maxFileSize) {
+                    idDocument.style.borderColor = 'var(--error-color)';
+                    document.getElementById("id-document-error").textContent = "Fichier trop volumineux (max 5Mo)";
+                    isValid = false;
+                } else {
+                    idDocument.style.borderColor = '#ddd';
+                    document.getElementById("id-document-error").textContent = "";
+                }
+            }
+        });
+
+        // Script pour gérer la modal de permis de construire
+        document.addEventListener('DOMContentLoaded', function () {
+            const permitModal = document.getElementById("buildingPermitModal");
+            const openPermitModalBtn = document.getElementById("openPermitModalBtn"); // À créer dans votre HTML
+            const closePermitModal = permitModal.getElementsByClassName("close")[0];
+            const cancelPermitModal = document.getElementById("permit-modal-cancel");
+
+            // Ouvrir la modal
+            openPermitModalBtn.onclick = function () {
+                permitModal.style.display = "block";
+            }
+
+            // Fermer la modal
+            closePermitModal.onclick = function () {
+                permitModal.style.display = "none";
+            }
+
+            cancelPermitModal.onclick = function () {
+                permitModal.style.display = "none";
+            }
+
+            // Fermer quand on clique en dehors
+            window.onclick = function (event) {
+                if (event.target == permitModal) {
+                    permitModal.style.display = "none";
+                }
+            }
+
+            // Validation du formulaire
+            document.getElementById("buildingPermitForm").onsubmit = function (e) {
+                e.preventDefault();
+
+                // Validation simple
+                let isValid = true;
+                const requiredFields = this.querySelectorAll('[required]');
+
+                requiredFields.forEach(field => {
+                    if (!field.value) {
+                        field.style.borderColor = 'var(--error-color)';
+                        isValid = false;
+                    } else {
+                        field.style.borderColor = '#ddd';
+                    }
+                });
+
+                if (isValid) {
+                    alert("Votre demande de permis de construire a été soumise avec succès.");
+                    permitModal.style.display = "none";
+                    this.reset();
+                } else {
+                    alert("Veuillez remplir tous les champs obligatoires.");
+                }
+            }
+        });
+
+
+        // Script pour gérer la modal de certificat d'urbanisme
+        document.addEventListener('DOMContentLoaded', function () {
+            const urbanismModal = document.getElementById("urbanismCertificateModal");
+            const openUrbanismModalBtn = document.getElementById("openUrbanismModalBtn"); // À créer dans votre HTML
+            const closeUrbanismModal = urbanismModal.getElementsByClassName("close")[0];
+            const cancelUrbanismModal = document.getElementById("cu-modal-cancel");
+
+            // Ouvrir la modal
+            openUrbanismModalBtn.onclick = function () {
+                urbanismModal.style.display = "block";
+            }
+
+            // Fermer la modal
+            closeUrbanismModal.onclick = function () {
+                urbanismModal.style.display = "none";
+            }
+
+            cancelUrbanismModal.onclick = function () {
+                urbanismModal.style.display = "none";
+            }
+
+            // Fermer quand on clique en dehors
+            window.onclick = function (event) {
+                if (event.target == urbanismModal) {
+                    urbanismModal.style.display = "none";
+                }
+            }
+
+            // Validation du formulaire
+            document.getElementById("urbanismCertificateForm").onsubmit = function (e) {
+                e.preventDefault();
+
+                // Validation simple
+                let isValid = true;
+                const requiredFields = this.querySelectorAll('[required]');
+
+                requiredFields.forEach(field => {
+                    if (!field.value) {
+                        field.style.borderColor = 'var(--error-color)';
+                        isValid = false;
+                    } else {
+                        field.style.borderColor = '#ddd';
+                    }
+                });
+
+                if (isValid) {
+                    alert("Votre demande de certificat d'urbanisme a été envoyée avec succès.");
+                    urbanismModal.style.display = "none";
+                    this.reset();
+                } else {
+                    alert("Veuillez remplir tous les champs obligatoires.");
+                }
+            }
+        });
+
+        // Script pour gérer la modal d'aide sociale
+        document.addEventListener('DOMContentLoaded', function () {
+            const socialModal = document.getElementById("socialHelpModal");
+            const openSocialModalBtn = document.getElementById("openSocialModalBtn"); // À créer dans votre HTML
+            const closeSocialModal = socialModal.getElementsByClassName("close")[0];
+            const cancelSocialModal = document.getElementById("sh-modal-cancel");
+
+            // Gestion de l'option "Autre"
+            document.getElementById("sh-help-other").addEventListener('change', function () {
+                document.getElementById("sh-help-other-detail").style.display = this.checked ? 'block' : 'none';
+            });
+
+            // Ouvrir la modal
+            openSocialModalBtn.onclick = function () {
+                socialModal.style.display = "block";
+            }
+
+            // Fermer la modal
+            closeSocialModal.onclick = function () {
+                socialModal.style.display = "none";
+            }
+
+            cancelSocialModal.onclick = function () {
+                socialModal.style.display = "none";
+            }
+
+            // Fermer quand on clique en dehors
+            window.onclick = function (event) {
+                if (event.target == socialModal) {
+                    socialModal.style.display = "none";
+                }
+            }
+
+            // Validation du formulaire
+            document.getElementById("socialHelpForm").onsubmit = function (e) {
+                e.preventDefault();
+
+                // Validation simple
+                let isValid = true;
+                const requiredFields = this.querySelectorAll('[required]');
+
+                requiredFields.forEach(field => {
+                    if (!field.value) {
+                        field.style.borderColor = 'var(--error-color)';
+                        isValid = false;
+                    } else {
+                        field.style.borderColor = '#ddd';
+                    }
+                });
+
+                // Vérifier qu'au moins un type d'aide est sélectionné
+                const helpTypes = document.querySelectorAll('input[name="sh-help-type"]:checked');
+                if (helpTypes.length === 0) {
+                    alert("Veuillez sélectionner au moins un type d'aide.");
+                    isValid = false;
+                }
+
+                if (isValid) {
+                    alert("Votre demande d'aide sociale a été envoyée. Nous traiterons votre demande dans les plus brefs délais.");
+                    socialModal.style.display = "none";
+                    this.reset();
+                } else {
+                    alert("Veuillez remplir tous les champs obligatoires.");
+                }
+            }
+        });
+    </script>
+</body>
+
+</html>

@@ -1,0 +1,1017 @@
+<!DOCTYPE html>
+<html lang="fr">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Mairie de Mongo - Ville de Mongo</title>
+    <style>
+        /* CSS Reset */
+        * {
+            margin: 0;
+            padding: 0;
+            box-sizing: border-box;
+            font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
+        }
+
+        /* Variables */
+        :root {
+            --primary-color: #1a5276;
+            --secondary-color: #2980b9;
+            --accent-color: #e67e22;
+            --light-color: #f5f5f5;
+            --dark-color: #333;
+            --success-color: #27ae60;
+        }
+
+        /* Base Styles */
+        body {
+            line-height: 1.6;
+            color: var(--dark-color);
+            background-color: #f9f9f9;
+        }
+
+        a {
+            text-decoration: none;
+            color: var(--primary-color);
+        }
+
+        ul {
+            list-style: none;
+        }
+
+        img {
+            width: 100%;
+        }
+
+        .container {
+            max-width: 1200px;
+            margin: 0 auto;
+            padding: 0 20px;
+        }
+
+        .btn {
+            display: inline-block;
+            padding: 10px 20px;
+            background: var(--primary-color);
+            color: white;
+            border: none;
+            border-radius: 5px;
+            cursor: pointer;
+            transition: all 0.3s ease;
+        }
+
+        .btn:hover {
+            background: var(--secondary-color);
+            transform: translateY(-2px);
+        }
+
+        .text-center {
+            text-align: center;
+        }
+
+        .section-padding {
+            padding: 60px 0;
+        }
+
+        /* Header */
+        header {
+            background: white;
+            box-shadow: 0 2px 10px rgba(0, 0, 0, 0.1);
+            position: sticky;
+            top: 0;
+            z-index: 100;
+        }
+
+        .header-container {
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+            padding: 15px 0;
+        }
+
+        .logo {
+            display: flex;
+            align-items: center;
+        }
+
+        .logo img {
+            width: 60px;
+            height: auto;
+            margin-right: 10px;
+        }
+
+        .logo-text h1 {
+            font-size: 1.5rem;
+            color: var(--primary-color);
+        }
+
+        .logo-text p {
+            font-size: 0.8rem;
+            color: var(--dark-color);
+        }
+
+        nav ul {
+            display: flex;
+        }
+
+        nav ul li {
+            margin-left: 20px;
+        }
+
+        nav ul li a {
+            color: var(--dark-color);
+            font-weight: 500;
+            transition: color 0.3s ease;
+        }
+
+        nav ul li a:hover {
+            color: white;
+            background: var(--primary-color);
+            font-weight: 700;
+            background-color: #2980b9;
+            border-radius: 5px;
+            padding: 5px 10px;
+            text-decoration: none;
+        }
+
+        nav ul li.active a {
+            color: white;
+        }
+
+        .mobile-menu {
+            display: none;
+            font-size: 1.5rem;
+            cursor: pointer;
+        }
+
+        /* Hero Section */
+        .hero {
+            background: linear-gradient(rgba(0, 0, 0, 0.6), rgba(0, 0, 0, 0.6)), url('images/Accueil.jpg') no-repeat center center/cover;
+            height: 60vh;
+            display: flex;
+            align-items: center;
+            color: white;
+            text-align: center;
+        }
+
+        .hero-content {
+            max-width: 800px;
+            margin: 0 auto;
+        }
+
+        .hero h1 {
+            font-size: 2.5rem;
+            margin-bottom: 20px;
+        }
+
+        .hero p {
+            font-size: 1.2rem;
+            margin-bottom: 30px;
+        }
+
+        /* Quick Links */
+        .quick-links {
+            background: var(--primary-color);
+            padding: 20px 0;
+            color: white;
+        }
+
+        .quick-links-container {
+            display: flex;
+            justify-content: space-around;
+            flex-wrap: wrap;
+        }
+
+        .quick-link {
+            text-align: center;
+            padding: 15px;
+            flex: 1;
+            min-width: 200px;
+        }
+
+        .quick-link i {
+            font-size: 2rem;
+            margin-bottom: 10px;
+            color: var(--accent-color);
+        }
+
+        .quick-link h3 {
+            margin-bottom: 10px;
+        }
+
+        /* About Section */
+        .about {
+            background: white;
+        }
+
+        .section-title {
+            text-align: center;
+            margin-bottom: 40px;
+            position: relative;
+        }
+
+        .section-title h2 {
+            font-size: 2rem;
+            color: var(--primary-color);
+            display: inline-block;
+            padding-bottom: 10px;
+        }
+
+        .section-title h2::after {
+            content: '';
+            position: absolute;
+            width: 50px;
+            height: 3px;
+            background: var(--accent-color);
+            bottom: 0;
+            left: 50%;
+            transform: translateX(-50%);
+        }
+
+        .about-content {
+            display: flex;
+            align-items: center;
+            flex-wrap: wrap;
+        }
+
+        .about-text {
+            flex: 1;
+            min-width: 300px;
+            padding-right: 30px;
+        }
+
+        .about-text h3 {
+            font-size: 1.5rem;
+            margin-bottom: 20px;
+            color: var(--primary-color);
+        }
+
+        .about-image {
+            flex: 1;
+            min-width: 300px;
+        }
+
+        /* Missions Section */
+        .missions {
+            background: var(--light-color);
+        }
+
+        .missions-grid {
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(300px, 1fr));
+            gap: 30px;
+        }
+
+        .mission-card {
+            background: white;
+            padding: 30px;
+            border-radius: 5px;
+            box-shadow: 0 5px 15px rgba(0, 0, 0, 0.1);
+            transition: transform 0.3s ease;
+        }
+
+        .mission-card:hover {
+            transform: translateY(-10px);
+        }
+
+        .mission-card i {
+            font-size: 2.5rem;
+            color: var(--accent-color);
+            margin-bottom: 20px;
+        }
+
+        .mission-card h3 {
+            margin-bottom: 15px;
+            color: var(--primary-color);
+        }
+
+        /* News Section */
+        .news .section-title {
+            margin-bottom: 30px;
+        }
+
+        .news-grid {
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(300px, 1fr));
+            gap: 30px;
+        }
+
+        .news-card {
+            background: white;
+            border-radius: 5px;
+            overflow: hidden;
+            box-shadow: 0 5px 15px rgba(0, 0, 0, 0.1);
+        }
+
+        .news-image {
+            height: 200px;
+            overflow: hidden;
+        }
+
+        .news-image img {
+            height: 100%;
+            object-fit: cover;
+            transition: transform 0.5s ease;
+        }
+
+        .news-card:hover .news-image img {
+            transform: scale(1.1);
+        }
+
+        .news-content {
+            padding: 20px;
+        }
+
+        .news-date {
+            color: var(--accent-color);
+            font-size: 0.9rem;
+            margin-bottom: 10px;
+        }
+
+        .news-content h3 {
+            margin-bottom: 10px;
+            color: var(--primary-color);
+        }
+
+        .news-content p {
+            margin-bottom: 15px;
+            font-size: 0.9rem;
+        }
+
+        /* Footer */
+        footer {
+            background: var(--dark-color);
+            color: white;
+            padding: 60px 0 20px;
+        }
+
+        .footer-container {
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(250px, 1fr));
+            gap: 30px;
+            margin-bottom: 40px;
+        }
+
+        .footer-col h3 {
+            color: var(--accent-color);
+            margin-bottom: 20px;
+            font-size: 1.2rem;
+        }
+
+        .footer-col ul li {
+            margin-bottom: 10px;
+        }
+
+        .footer-col ul li a {
+            color: #ddd;
+            transition: color 0.3s ease;
+        }
+
+        .footer-col ul li a:hover {
+            color: var(--accent-color);
+        }
+
+        .social-links {
+            display: flex;
+            gap: 15px;
+        }
+
+        .social-links a {
+            display: inline-block;
+            width: 40px;
+            height: 40px;
+            background: rgba(255, 255, 255, 0.1);
+            border-radius: 50%;
+            text-align: center;
+            line-height: 40px;
+            color: white;
+            transition: all 0.3s ease;
+        }
+
+        .social-links a:hover {
+            background: var(--accent-color);
+            transform: translateY(-3px);
+        }
+
+        .footer-bottom {
+            text-align: center;
+            padding-top: 20px;
+            border-top: 1px solid rgba(255, 255, 255, 0.1);
+            font-size: 0.9rem;
+        }
+
+        /* Responsive */
+        @media (max-width: 768px) {
+            .header-container {
+                flex-direction: row;
+                text-align: left;
+            }
+
+
+            nav ul li {
+                width: 100%;
+                text-align: center;
+            }
+
+            nav ul li a {
+                display: block;
+                padding: 12px 0;
+                transition: all 0.3s ease;
+            }
+
+            nav ul li a:hover {
+                background-color: rgba(230, 126, 34, 0.1);
+                transform: translateX(5px);
+            }
+
+            nav ul li a::after {
+                display: none;
+                /* On retire l'effet de soulignement en mobile */
+            }
+
+
+            .logo {
+                margin-bottom: 15px;
+                justify-content: center;
+            }
+
+            nav ul {
+                margin-top: 15px;
+                flex-direction: column;
+                align-items: center;
+            }
+
+            nav ul {
+                display: none;
+                position: absolute;
+                top: 80px;
+                left: 0;
+                width: 100%;
+                background: white;
+                padding: 20px 0;
+                box-shadow: 0 5px 10px rgba(0, 0, 0, 0.1);
+            }
+
+            nav ul.show {
+                display: flex;
+            }
+
+            nav ul li {
+                margin: 10px 0;
+            }
+
+            .mobile-menu {
+                display: block;
+            }
+
+            nav ul li {
+                margin: 5px 0;
+            }
+
+            .hero h1 {
+                font-size: 2rem;
+            }
+
+            .hero p {
+                font-size: 1rem;
+            }
+
+            .quick-links-container {
+                flex-direction: column;
+            }
+
+            .quick-link {
+                margin-bottom: 20px;
+            }
+
+            .about-content {
+                flex-direction: column;
+            }
+
+            .about-text {
+                padding-right: 0;
+                margin-bottom: 30px;
+            }
+        }
+
+        @media (max-width: 480px) {
+            .hero {
+                height: 50vh;
+            }
+
+            .hero h1 {
+                font-size: 1.8rem;
+            }
+
+            .section-title h2 {
+                font-size: 1.5rem;
+            }
+        }
+
+        /* Styles pour la section suggestions */
+        .suggestions-section {
+            background-color: var(--light-color);
+            border-top: 1px solid #e0e0e0;
+            border-bottom: 1px solid #e0e0e0;
+        }
+
+        .suggestions-container {
+            display: grid;
+            grid-template-columns: 1fr 1fr;
+            gap: 30px;
+        }
+
+        .suggestion-form,
+        .suggestions-list {
+            background: white;
+            padding: 30px;
+            border-radius: 8px;
+            box-shadow: 0 2px 10px rgba(0, 0, 0, 0.05);
+        }
+
+        .suggestion-form h3,
+        .suggestions-list h3 {
+            color: var(--primary-color);
+            margin-bottom: 20px;
+            padding-bottom: 10px;
+            border-bottom: 2px solid var(--accent-color);
+        }
+
+        .suggestion-item {
+            padding: 15px 0;
+            border-bottom: 1px solid #eee;
+        }
+
+        .suggestion-header {
+            display: flex;
+            justify-content: space-between;
+            margin-bottom: 8px;
+            font-size: 0.9rem;
+        }
+
+        .category-badge {
+            color: white;
+            padding: 3px 10px;
+            border-radius: 20px;
+            font-size: 0.8rem;
+        }
+
+        .suggestion-text {
+            font-style: italic;
+            color: #555;
+        }
+
+        .suggestion-date {
+            color: #777;
+        }
+
+        .view-all {
+            display: inline-block;
+            margin-top: 15px;
+            color: var(--primary-color);
+            font-weight: 500;
+        }
+
+        /* Responsive */
+        @media (max-width: 768px) {
+            .suggestions-container {
+                grid-template-columns: 1fr;
+            }
+        }
+
+        /* Styles pour le burger menu */
+        .burger-menu {
+            display: flex;
+            flex-direction: column;
+            justify-content: space-between;
+            width: 30px;
+            height: 21px;
+            cursor: pointer;
+        }
+
+        .burger-menu span {
+            display: block;
+            height: 3px;
+            width: 100%;
+            background-color: var(--primary-color);
+            border-radius: 3px;
+            transition: all 0.3s ease;
+        }
+
+        /* Animation quand le menu est ouvert */
+        nav ul.show~.mobile-menu .burger-menu span:nth-child(1) {
+            transform: translateY(9px) rotate(45deg);
+        }
+
+        nav ul.show~.mobile-menu .burger-menu span:nth-child(2) {
+            opacity: 0;
+        }
+
+        nav ul.show~.mobile-menu .burger-menu span:nth-child(3) {
+            transform: translateY(-9px) rotate(-45deg);
+        }
+    </style>
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.0.0-beta3/css/all.min.css">
+</head>
+
+<body>
+    <!-- Header -->
+    <header>
+        <div class="container header-container">
+            <div class="logo">
+                <img src="images/logo.jpg" alt="Mairie de Mongo">
+                <div class="logo-text">
+                    <h1>Mairie de Mongo</h1>
+                    <p>Commune de Mongo</p>
+                </div>
+            </div>
+            <nav>
+                <ul>
+                    <li><a href="#" class="active">Accueil</a></li>
+                    <li><a href="servicesAdmin.html">Services</a></li>
+                    <li><a href="#misions">Nos Missions</a></li>
+                    <li><a href="#news">Actualités</a></li>
+                    <li><a href="#contact">Contact</a></li>
+                </ul>
+            </nav>
+            <div class="mobile-menu">
+                <div class="burger-menu">
+                    <span></span>
+                    <span></span>
+                    <span></span>
+                </div>
+            </div>
+        </div>
+    </header>
+
+    <!-- Hero Section -->
+    <section class="hero">
+        <div class="container">
+            <div class="hero-content">
+                <h1>Bienvenue à Mongo</h1>
+                <p>Découvrez une commune dynamique au cœur de notre région, engagée pour le bien-être de ses habitants
+                    et le développement de son territoire.</p>
+                <a href="https://fr.wikipedia.org/wiki/Mongo_(Tchad)" class="btn">En savoir plus</a>
+            </div>
+        </div>
+    </section>
+
+    <!-- Quick Links -->
+    <section class="quick-links">
+        <div class="container quick-links-container">
+            <div class="quick-link">
+                <i class="fas fa-file-alt"></i>
+                <h3>Démarches en ligne</h3>
+                <p>Accédez à nos services administratifs</p>
+            </div>
+            <div class="quick-link">
+                <i class="fas fa-calendar-alt"></i>
+                <h3>Agenda</h3>
+                <p>Découvrez les événements à venir</p>
+            </div>
+            <div class="quick-link">
+                <i class="fas fa-envelope"></i>
+                <h3>Contact</h3>
+                <p>Contactez nos services</p>
+            </div>
+            <div class="quick-link">
+                <i class="fas fa-newspaper"></i>
+                <h3>Actualités</h3>
+                <p>Restez informés</p>
+            </div>
+        </div>
+    </section>
+
+    <!-- About Section -->
+    <section class="about section-padding">
+        <div class="container">
+            <div class="section-title">
+                <h2>Présentation de la Commune</h2>
+            </div>
+            <div class="about-content">
+                <div class="about-text">
+                    <h3>Mongo, une commune qui vit</h3>
+                    <p>La commune de Mongo est un territoire riche en histoire et en potentiel, situé au cœur d'une
+                        région dynamique. Avec ses paysages variés, son patrimoine culturel et ses infrastructures
+                        modernes, Mongo offre à ses habitants une qualité de vie exceptionnelle.</p>
+                    <p>Notre commune s'engage quotidiennement pour améliorer le cadre de vie de ses citoyens, développer
+                        les services publics et favoriser le dynamisme économique et culturel.</p>
+                    <p>Découvrez une administration proche de ses concitoyens, à l'écoute de leurs besoins et déterminée
+                        à construire ensemble l'avenir de Mongo.</p>
+                    <a href="https://fr.wikipedia.org/wiki/Mongo_(Tchad)" class="btn">Découvrir Mongo</a>
+                </div>
+                <div class="about-image">
+                    <img src="images/Vue_sur_la_commune.jpg" alt="Vue de la commune de Mongo">
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- Missions Section -->
+    <section id='misions' class="missions section-padding">
+        <div class="container">
+            <div class="section-title">
+                <h2>Nos Missions</h2>
+            </div>
+            <div class="missions-grid">
+                <div class="mission-card">
+                    <i class="fas fa-landmark"></i>
+                    <h3>Renforcer la République</h3>
+                    <p>Promouvoir les valeurs républicaines et garantir le bon fonctionnement des institutions locales
+                        au service des citoyens.</p>
+                </div>
+                <div class="mission-card">
+                    <i class="fas fa-city"></i>
+                    <h3>Développer l'urbanisme</h3>
+                    <p>Planifier et aménager le territoire communal de manière durable et harmonieuse pour améliorer le
+                        cadre de vie.</p>
+                </div>
+                <div class="mission-card">
+                    <i class="fas fa-theater-masks"></i>
+                    <h3>Favoriser l'offre culturelle</h3>
+                    <p>Soutenir et développer les activités culturelles, artistiques et patrimoniales pour tous les
+                        publics.</p>
+                </div>
+                <div class="mission-card">
+                    <i class="fas fa-tree"></i>
+                    <h3>Améliorer le cadre de vie</h3>
+                    <p>Agir pour un environnement plus agréable, des espaces verts entretenus et des équipements
+                        modernes.</p>
+                </div>
+                <div class="mission-card">
+                    <i class="fas fa-monument"></i>
+                    <h3>Rénover le patrimoine</h3>
+                    <p>Préserver et valoriser le patrimoine architectural et historique de la commune.</p>
+                </div>
+                <div class="mission-card">
+                    <i class="fas fa-shield-alt"></i>
+                    <h3>Renforcer la sécurité</h3>
+                    <p>Garantir la sécurité des personnes et des biens sur l'ensemble du territoire communal.</p>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- News Section -->
+    <section id='news' class="news section-padding">
+        <div class="container">
+            <div class="section-title">
+                <h2>Actualités & Événements</h2>
+            </div>
+            <div class="news-grid">
+                <div class="news-card">
+                    <div class="news-image">
+                        <img src="images/Actu1.jpg" alt="Actualité 1">
+                    </div>
+                    <div class="news-content">
+                        <div class="news-date">12 Juillet 2025</div>
+                        <h3>La Mairie de Mongo crée un comité de gestion de l'eau de pluie pour prévenir les inondations
+                        </h3>
+                        <p>
+                            Face aux problèmes récurrents de dégradation des rues et aux risques d'inondation causés par
+                            les eaux de pluie, la Mairie de Mongo, sous l'impulsion du Maire Hamza Abba Dharou, a mis en
+                            place un comité spécialisé dans la gestion des eaux pluviales.
+                        </p>
+                        <a href="https://www.alwihdainfo.com/Tchad-La-Mairie-de-Mongo-cree-un-comite-de-gestion-de-l-eau-de-pluie-pour-prevenir-les-inondations_a142495.html"
+                            class="btn">Lire la suite</a>
+                    </div>
+                </div>
+                <div class="news-card">
+                    <div class="news-image">
+                        <img src="images/Actu2.jpg" alt="Actualité 2">
+                    </div>
+                    <div class="news-content">
+                        <div class="news-date">29 Juillet 2025</div>
+                        <h3> La mairie de Mongo mène des travaux de remblayage pour des rues plus sûres</h3>
+                        <p>Le maire de la commune de Mongo, Hamza Abba Djaourou, accompagné de son équipe, s’est rendu
+                            au marché de Mongo pour évaluer la circulation sur les principales artères de la ville et
+                            trouver des solutions aux nombreux nids-de-poule.</p>
+                        <a href="https://tchadinfos.com/guera-la-mairie-de-mongo-mene-des-travaux-de-remblayage-pour-des-rues-plus-sures/"
+                            class="btn">Lire la suite</a>
+                    </div>
+                </div>
+                <div class="news-card">
+                    <div class="news-image">
+                        <img src="images/hygiene.jpg" alt="Actualité 3">
+                    </div>
+                    <div class="news-content">
+                        <div class="news-date">21 Mars 2025</div>
+                        <h3>l'hygiène et assainissement au centre d'une descente terrain de l'équipe dirigeante de la
+                            commune de Mongo </h3>
+                        <p>Dans le cadre de l'hygiène et de l'assainissement, la mairie de Mongo Hamza Abba Djaourou
+                            accompagné de son staff a fait une descente ce vendredi 21 mars 2025 dans les différents
+                            coins de la ville pour s'imprégner ces derniers. À travers un constat de terrain, le maire
+                            s'est dit déterminer à s'engager activement pour améliorer les conditions de vie des
+                            habitants et préserver la santé publique à travers :</p>
+                        <a href="https://www.facebook.com/share/p/1BqtfzWKnv/" class="btn">Lire la suite</a>
+                    </div>
+                </div>
+                <div class="news-card">
+                    <div class="news-image">
+                        <img src="images/actu4.jpg" alt="Actualité 3">
+                    </div>
+                    <div class="news-content">
+                        <div class="news-date">21 Mars 2025</div>
+                        <h3>Le PAM décide de clôturer l'aérodrome de Mongo. </h3>
+                        <p>À cet effet, les études topographiques sont lancées ce 26 Mars 2025 en présence du Maire de
+                            la ville Hamza Abba Djaourou et de quelques personnalités.
+                            Ce projet très ambitieux a été salué à sa juste valeur par le Maire qui s'engage par
+                            ailleurs à œuvrer pour le rayonnement de la ville avec le concours des uns et des autres.
+                            Il faut mentionner que depuis son installation, l'exécutif communal de Mongo, à sa tête le
+                            Maire Hamza Abba Djaourou, s'active inlassablement pour redorer l'image de la ville.</p>
+                        <a href="https://www.facebook.com/share/p/1GZuBVH74M/" class="btn">Lire la suite</a>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- Section Suggestions des Habitants -->
+    <section class="suggestions-section section-padding" style="background-color: #f5f9fc;">
+        <div class="container">
+            <div class="section-title">
+                <h2><i class="fas fa-comment-alt"></i> Vos suggestions</h2>
+                <p>Partagez vos idées pour améliorer notre commune</p>
+            </div>
+
+            <div class="suggestions-container">
+                <!-- Formulaire de suggestion -->
+                <div class="suggestion-form">
+                    <h3>Proposez votre idée</h3>
+                    <form id="suggestionForm">
+                        <div class="form-group">
+                            <label for="suggestion-name">Votre nom (facultatif)</label>
+                            <input type="text" id="suggestion-name" name="name" placeholder="Ex: Ahmat D.">
+                        </div>
+
+                        <div class="form-group">
+                            <label for="suggestion-email">Email (facultatif)</label>
+                            <input type="email" id="suggestion-email" name="email" placeholder="Ex:ahmat@exple.com">
+                        </div>
+
+                        <div class="form-group">
+                            <label for="suggestion-category">Catégorie</label>
+                            <select id="suggestion-category" name="category" required>
+                                <option value=""> Choisissez une catégorie </option>
+                                <option value="urbanisme">Urbanisme & Travaux</option>
+                                <option value="culture">Culture & Loisirs</option>
+                                <option value="environnement">Environnement</option>
+                                <option value="securite">Sécurité</option>
+                                <option value="autre">Autre</option>
+                            </select>
+                        </div>
+
+                        <div class="form-group">
+                            <label for="suggestion-text" class="required">Votre suggestion</label>
+                            <textarea id="suggestion-text" name="suggestion" rows="5" required
+                                placeholder="Décrivez votre idée en quelques lignes..."></textarea>
+                        </div>
+
+                        <div class="form-footer">
+                            <button type="submit" class="btn">
+                                <i class="fas fa-paper-plane"></i> Envoyer
+                            </button>
+                        </div>
+                    </form>
+                </div>
+
+                <!-- Liste des suggestions récentes (optionnel) -->
+                <div class="suggestions-list">
+                    <h3>Dernières suggestions</h3>
+                    <div class="suggestion-item">
+                        <div class="suggestion-header">
+                            <span class="category-badge" style="background-color: #e67e22;">Environnement</span>
+                            <span class="suggestion-date">4 aout 2025</span>
+                        </div>
+                        <p class="suggestion-text">"Pourrait-on installer plus de poubelles de tri dans le parc central
+                            ?"</p>
+                    </div>
+
+                    <div class="suggestion-item">
+                        <div class="suggestion-header">
+                            <span class="category-badge" style="background-color: #2980b9;">Culture</span>
+                            <span class="suggestion-date">4 aout 2025</span>
+                        </div>
+                        <p class="suggestion-text">"Organiser un festival culturel mettant en avant les talents locaux."
+                        </p>
+                    </div>
+
+                    <a href="#" class="view-all">Voir toutes les suggestions →</a>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- Footer -->
+    <footer>
+        <div id="contact" class="container">
+            <div class="footer-container">
+                <div class="footer-col">
+                    <h3>Mairie de Mongo</h3>
+                    <p>Commune de Mongo</p>
+                    <p>Secteur 5, sur le grand Axe Mongo-Ati, Mongo, TChad</p>
+                    <p>Tél: 99 00 86 83</p>
+                    <p>
+                        <br>
+                        Email: communedemongo@gmail.com
+                    </p>
+                </div>
+                <div class="footer-col">
+                    <h3>Horaires</h3>
+                    <ul>
+                        <li>Lundi - Jeudi : 8h-12h / 14h-17h</li>
+                        <li>Vendredi : 8h-12h </li>
+                        <li>Samedi - Dimanche : Fermé</li>
+                    </ul>
+                </div>
+                <div class="footer-col">
+                    <h3>Suivez-nous</h3>
+                    <div class="social-links">
+                        <a href="https://www.facebook.com/communedemongoofficiel/about" target="_blank"><i
+                                class="fab fa-facebook-f"></i></a>
+                        <!-- <a href="#"><i class="fab fa-twitter"></i></a> -->
+                        <a href="#"><i class="fab fa-instagram"></i></a>
+                        <!-- <a href="#"><i class="fab fa-youtube"></i></a> -->
+                    </div>
+                </div>
+            </div>
+            <div class="footer-bottom">
+                <p>&copy; 2023 Mairie de Mongo - Tous droits réservés</p>
+            </div>
+        </div>
+    </footer>
+
+    <script>
+        // Mobile Menu Toggle
+        document.querySelector('.mobile-menu').addEventListener('click', function () {
+            document.querySelector('nav ul').classList.toggle('show');
+        });
+
+        // Smooth Scrolling for Anchor Links
+        document.querySelectorAll('a[href^="#"]').forEach(anchor => {
+            anchor.addEventListener('click', function (e) {
+                e.preventDefault();
+                document.querySelector(this.getAttribute('href')).scrollIntoView({
+                    behavior: 'smooth'
+                });
+            });
+        });
+
+        // Current Year for Footer
+        document.querySelector('.footer-bottom p').innerHTML = `&copy; ${new Date().getFullYear()} Mairie de Mongo - Tous droits réservés`;
+
+        // Simple Form Validation for Newsletter
+        document.querySelector('form').addEventListener('submit', function (e) {
+            e.preventDefault();
+            const email = this.querySelector('input[type="email"]').value;
+            if (email && email.includes('@')) {
+                alert('Merci pour votre inscription à notre newsletter !');
+                this.reset();
+            } else {
+                alert('Veuillez entrer une adresse email valide.');
+            }
+        });
+
+        // Animation on Scroll
+        const observer = new IntersectionObserver((entries) => {
+            entries.forEach(entry => {
+                if (entry.isIntersecting) {
+                    entry.target.classList.add('animate');
+                }
+            });
+        }, {
+            threshold: 0.1
+        });
+
+        document.querySelectorAll('.mission-card, .news-card').forEach(card => {
+            observer.observe(card);
+        });
+
+
+        // Gestion du formulaire de suggestion
+        document.getElementById('suggestionForm').addEventListener('submit', function (e) {
+            e.preventDefault();
+
+            // Récupération des données du formulaire
+            const formData = {
+                name: document.getElementById('suggestion-name').value,
+                email: document.getElementById('suggestion-email').value,
+                category: document.getElementById('suggestion-category').value,
+                suggestion: document.getElementById('suggestion-text').value
+            };
+
+            // Ici vous pourriez ajouter une requête AJAX pour envoyer les données au serveur
+            console.log('Suggestion soumise:', formData);
+
+            // Affichage d'un message de confirmation
+            alert('Merci pour votre suggestion ! Elle sera examinée par nos services.');
+
+            // Réinitialisation du formulaire
+            this.reset();
+        });
+
+    </script>
+</body>
+
+</html>
